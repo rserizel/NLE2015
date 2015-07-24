@@ -1,0 +1,338 @@
+\begin{thebibliography}{}
+
+\bibitem[Abdel-Hamid and Jiang(2013)]{abdel2013rapid}
+Abdel-Hamid, O. and Jiang, H. (2013).
+\newblock Rapid and effective speaker adaptation of convolutional neural
+  network based models for speech recognition.
+\newblock In {\em Proc. of INTERSPEECH}, pages 1248--1252.
+
+\bibitem[Angelini et~al.(1994)Angelini, Brugnara, Falavigna, Giuliani, Gretter,
+  and Omologo]{AngBruFalGiuGreOmo94}
+Angelini, B., Brugnara, F., Falavigna, D., Giuliani, D., Gretter, R., and
+  Omologo, M. (1994).
+\newblock {Speaker Independent Continuous Speech Recognition Using an
+  Acoustic-Phonetic Italian Corpus}.
+\newblock In {\em {Proc. of ICSLP}}, pages 1391--1394, Yokohama, Japan.
+
+\bibitem[Bell et~al.(2013)Bell, Swietojanski, and Renals]{bell13}
+Bell, P., Swietojanski, P., and Renals, S. (2013).
+\newblock Multi-level adaptive networks in tandem and hybrid {ASR} systems.
+\newblock In {\em {Proc. of IEEE ICASSP}}, pages 6975--6979, Vancouver, Canada.
+
+
+\bibitem[Bengio et~al.(2007)Bengio, Lamblin, Popovici, Larochelle, et~al.]{bengio07}
+Bengio, Y., Lamblin, P., Popovici, D., Larochelle, H., et~al. (2007).
+\newblock Greedy layer-wise training of deep networks.
+\newblock {\em Advances in {N}eural {I}nformation {P}rocessing {S}ystems},
+  19:153.
+
+\bibitem[Bengio et~al.(2013)Bengio, Courville, and
+  Vincent]{bengio2013representation}
+Bengio, Y., Courville, A., and Vincent, P. (2013).
+\newblock Representation learning: A review and new perspectives.
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 35(8):1798--1828.
+
+\bibitem[Bourlard and Morgan(1994)]{bourlard94}
+Bourlard, H.~A. and Morgan, N. (1994).
+\newblock {\em Connectionist speech recognition: a hybrid approach}, volume
+  247.
+\newblock Springer.
+
+\bibitem[Burget et~al.(2010)Burget, Schwarz, Agarwal, Akyazi, Feng, Ghoshal,
+  Glembek, Goel, Karafiat, Povey, Rastrow, Rose, and Thomas]{burget13}
+Burget, L., Schwarz, P., Agarwal, M., Akyazi, P., Feng, K., Ghoshal, A.,
+  Glembek, O., Goel, N., Karafiat, M., Povey, D., Rastrow, A., Rose, R., and
+  Thomas, S. (2010).
+\newblock Multilingual acoustic modeling for speech recognition based on
+  subspace gaussian mixture models.
+\newblock In {\em {Proc. of IEEE ICASSP}}, pages 4334--4337.
+
+\bibitem[Claes et~al.(1998)Claes, Dologlou, ten Bosch, and
+  Compernolle]{ClaDolBosCom98}
+Claes, T., Dologlou, I., ten Bosch, L., and Compernolle, D.~V. (1998).
+\newblock {A Novel Feature Transformation for Vocal Tract Length Normalisation
+  in Automatic Speech Recognition}.
+\newblock {\em IEEE Transactions on Speech and Audio Processing},
+  6(6):549--557.
+
+\bibitem[Dahl et~al.(2012)Dahl, Yu, Deng, and Acero]{dahl12}
+Dahl, G., Yu, D., Deng, L., and Acero, A. (2012).
+\newblock Context-dependent pre-trained deep neural networks for
+  large-vocabulary speech recognition.
+\newblock {\em IEEE Transactions on Audio, Speech, and Language Processing},
+  20(1):30--42.
+
+\bibitem[Das et~al.(1998)Das, Nix, and Picheny]{DasNixPic98}
+Das, S., Nix, D., and Picheny, M. (1998).
+\newblock {Improvements in Children's Speech Recognition Performance}.
+\newblock In {\em {Proc. of IEEE ICASSP}}, Seattle,WA.
+
+\bibitem[Eide and Gish(1996)]{EidGis96}
+Eide, E. and Gish, H. (1996).
+\newblock {A Parametric Approach to Vocal Tract Lenght Normalization}.
+\newblock In {\em {Proc. of IEEE ICASSP}}, pages 346--349, Atlanta, GA.
+
+\bibitem[Erhan et~al.(2010)Erhan, Bengio, Courville, Manzagol, Vincent, and
+  Bengio]{erhan10}
+Erhan, D., Bengio, Y., Courville, A., Manzagol, P.-A., Vincent, P., and Bengio,
+  S. (2010).
+\newblock Why does unsupervised pre-training help deep learning?
+\newblock {\em The Journal of Machine Learning Research}, 11:625--660.
+
+\bibitem[Fitch and Giedd(1999)]{FitGie99}
+Fitch, W.~T. and Giedd, J. (1999).
+\newblock {Morphology and development of the human vocal tract: A study using
+  magnetic resonance imaging}.
+\newblock {\em Journal of Acoust. Soc. Amer.}, 106(3):1511--1522.
+
+\bibitem[Gales(1998)]{Gal98}
+Gales, M. J.~F. (1998).
+\newblock Maximum likelihood linear transformations for {HMM}-based speech
+  recognition.
+\newblock {\em Computer Speech and Language}, 12:75--98.
+
+\bibitem[Gerosa et~al.(2007)Gerosa, Giuliani, and Brugnara]{GerGiuBru07}
+Gerosa, M., Giuliani, D., and Brugnara, F. (2007).
+\newblock Acoustic variability and automatic recognition of children’s
+  speech.
+\newblock {\em Speech Communication}, 49(10–11):847 -- 860.
+
+\bibitem[Gerosa et~al.(2009{\natexlab{a}})Gerosa, Giuliani, and
+  Brugnara]{GerGiuBru09}
+Gerosa, M., Giuliani, D., and Brugnara, F. (2009a).
+\newblock Towards age-independent acoustic modeling.
+\newblock {\em Speech Communication}, 51(6):499 -- 509.
+
+\bibitem[Gerosa et~al.(2009{\natexlab{b}})Gerosa, Giuliani, Narayanan, and
+  Potamianos]{Gerosa2009}
+Gerosa, M., Giuliani, D., Narayanan, S., and Potamianos, A. (2009b).
+\newblock {A Review of ASR Technologies for Children's Speech}.
+\newblock In {\em Proc. of the 2nd Workshop on Child, Computer and
+  Interaction}, pages 7:1--7:8, New York, NY, USA. ACM.
+
+\bibitem[Gillick and Cox(1989)]{GilCox89}
+Gillick, L. and Cox, S. (1989).
+\newblock {Some Statistical Issues in the Comparison of Speech Recognition
+  Algorithms}.
+\newblock In {\em {Proc. of IEEE ICASSP}}, pages I--532--535, Glasgow,
+  Scotland.
+
+\bibitem[Giuliani and Gerosa(2003)]{GiuGer03}
+Giuliani, D. and Gerosa, M. (2003).
+\newblock {Investigating Recognition of Children Speech}.
+\newblock In {\em {Proc. of IEEE ICASSP}}, volume~2, pages 137--140, Hong Kong.
+
+\bibitem[Hagen et~al.(2003)Hagen, Pellom, and Cole]{HagPelCol03}
+Hagen, A., Pellom, B., and Cole, R. (2003).
+\newblock {Children's Speech Recognition with Application to Interactive Books
+  and Tutors}.
+\newblock In {\em {Proc. of IEEE ASRU Workshop}}, St. Thomas~Irsee, US Virgin
+  Islands.
+
+\bibitem[Hinton et~al.(2012)Hinton, Deng, Yu, Dahl, Mohamed, Jaitly, Senior,
+  Vanhoucke, Nguyen, Sainath, and Kingsbury]{hinton12}
+Hinton, G., Deng, L., Yu, D., Dahl, G., Mohamed, A., Jaitly, N., Senior, A.,
+  Vanhoucke, V., Nguyen, P., Sainath, T., and Kingsbury, B. (2012).
+\newblock Deep neural networks for acoustic modeling in speech recognition.
+\newblock {\em IEEE Signal Processing Magazine}, 29(6):82--97.
+
+\bibitem[Hinton et~al.(2006)Hinton, Osindero, and Teh]{hinton06}
+Hinton, G., Osindero, S., and Teh, Y.-W. (2006).
+\newblock A fast learning algorithm for deep belief nets.
+\newblock {\em Neural computation}, 18(7):1527--1554.
+
+\bibitem[Huber et~al.(1999)Huber, Stathopoulos, Curione, Ash, and
+  Johnson]{HubStaCurAshJoh99}
+Huber, J.~E., Stathopoulos, E.~T., Curione, G.~M., Ash, T.~A., and Johnson, K.
+  (1999).
+\newblock {Formants of children women and men: The effect of vocal intensity
+  variation}.
+\newblock {\em Journal of Acoust. Soc. Amer.}, 106(3):1532--1542.
+
+\bibitem[Imseng et~al.(2013)Imseng, Motlicek, Garner, and Bourlard]{imseng13}
+Imseng, D., Motlicek, P., Garner, P., and Bourlard, H. (2013).
+\newblock Impact of deep {MLP} architecture on different acoustic modeling
+  techniques for under-resourced speech recognition.
+\newblock In {\em {Proc. of IEEE ASRU Workshop}}, pages 332--337.
+
+\bibitem[Kumar et~al.(1998)Kumar, N. and Andreou, A. G.]{Kumar1998283}
+Kumar, N. and Andreou, A. G. (1998).
+\newblock {Heteroscedastic discriminant analysis and reduced rank HMMs for improved speech recognition}
+\newblock {\em Speech Communication}, 26:283--97
+
+\bibitem[Le et~al.(2010)Le, Lamel, and Gauvain]{vietbac10}
+Viet-Bac, Le, Lamel, L., and Gauvain, J. (2010).
+\newblock {Multi-style ML features for BN transcription}.
+\newblock In {\em {Proc. of IEEE ICASSP}}, pages 4866--4869.
+
+\bibitem[Lee and Gauvain(1993)]{LeeGau93}
+Lee, C.-H. and Gauvain, J.-L. (1993).
+\newblock Speaker adaptation based on map estimation of hmm parameters.
+\newblock In {\em {Proc. of IEEE ICASSP}}, volume~2, pages 558--561.
+
+\bibitem[Lee and Rose(1996)]{LeeRos96}
+Lee, L. and Rose, R.~C. (1996).
+\newblock {Speaker Normalization Using Efficient Frequency Warping Procedure}.
+\newblock In {\em {Proc. of IEEE ICASSP}}, pages 353--356, Atlanta, GA.
+
+\bibitem[Lee et~al.(1999)Lee, Potamianos, and Narayanan]{LeePotNar99}
+Lee, S., Potamianos, A., and Narayanan, S. (1999).
+\newblock {Acoustic of children's speech: Developmental changes of temporal and
+  spectral parameters}.
+\newblock {\em Journal of Acoust. Soc. Amer.}, 105(3):1455--1468.
+
+\bibitem[Li and Russell(2001)]{LiRus01}
+Li, Q. and Russell, M. (2001).
+\newblock {Why is Automatic Recognition of Children's Speech Difficult?}
+\newblock In {\em {Proc. of the Seventh European Conference on Speech
+  Communication and Technology}}, Aalborg, Denmark.
+
+\bibitem[Liao(2013)]{liao2013speaker}
+Liao, H. (2013).
+\newblock Speaker adaptation of context dependent deep neural networks.
+\newblock In {\em {Proc. of IEEE ICASSP}}, pages 7947--7951.
+
+\bibitem[Metallinou and Cheng(2014)]{MatChe2014}
+Metallinou, A. and Cheng, J. (2014).
+\newblock {Using Deep Neural Networks to Improve Proficiency Assessment for
+  Children English Language Learners}.
+\newblock In {\em Proc. of INTERSPEECH}, pages 1468--1472.
+
+\bibitem[Mohamed et~al.(2012)Mohamed, Dahl, and Hinton]{mohamed12}
+Mohamed, A., Dahl, G., and Hinton, G. (2012).
+\newblock Acoustic modeling using deep belief networks.
+\newblock {\em IEEE Transactions on Audio, Speech, and Language Processing},
+  20(1):14--22.
+
+\bibitem[Nisimura et~al.(2004)Nisimura, Lee, Saruwatari, and
+  Shikano]{NisLeeSarShi04}
+Nisimura, R., Lee, A., Saruwatari, H., and Shikano, K. (2004).
+\newblock {Public Speech-Oriented Guidance System with Adult and Child
+  Discrimination Capability}.
+\newblock In {\em {Proc. of IEEE ICASSP}}, Montreal, Canada.
+
+\bibitem[Pinto et~al.(2009)Pinto, Magimai-Doss, and Bourlard]{pinto09}
+Pinto, J., Magimai-Doss, and Bourlard, H. (2009).
+\newblock {M}{L}{P} based hierarchical system for task adaptation in {ASR}.
+\newblock In {\em {Proc. of IEEE ASRU Workshop}}, pages 365--370.
+
+\bibitem[Potamianos and Narayanan(2003)]{PotNar03}
+Potamianos, A. and Narayanan, S. (2003).
+\newblock {Robust Recognition of Children's Speech}.
+\newblock {\em IEEE Transasctions on Speech and Audio Processing},
+  11(6):603--615.
+
+\bibitem[Seide et~al.(2011{\natexlab{a}})Seide, Li, Chen, and Yu]{seide11}
+Seide, F., Li, G., Chen, X., and Yu, D. (2011a).
+\newblock Feature engineering in context-dependent deep neural networks for
+  conversational speech transcription.
+\newblock In {\em {Proc. of IEEE ASRU Workshop}}, pages 24--29.
+
+\bibitem[Seide et~al.(2011{\natexlab{b}})Seide, Li, Chen, and
+  Yu]{export:157341}
+Seide, F., Li, G., Chen, X., and Yu, D. (2011b).
+\newblock Feature engineering in context-dependent deep neural networks for
+  conversational speech transcription.
+\newblock In {\em {Proc. of IEEE ASRU Workshop}}.
+
+\bibitem[Seltzer et~al.(2013)Seltzer, Yu, and Wang]{export:194344}
+Seltzer, M., Yu, D., and Wang, Y. (2013).
+\newblock An investigation of deep neural networks for noise robust speech
+  recognition.
+\newblock In {\em {Proc. of IEEE ICASSP}}.
+
+\bibitem[Senior and Lopez-Moreno(2014)]{42536}
+Senior, A. and Lopez-Moreno, I. (2014).
+\newblock Improving {DNN} speaker independence with {I}-vector inputs.
+\newblock In {\em {Proc. of IEEE ICASSP}}.
+
+\bibitem[Serizel and D.(2014)]{SerGiu2014a}
+Serizel, R. and Giuliani, D. (2014).
+\newblock {Vocal tract length normalisation approaches to {DNN}-based
+  children's and adults' speech recognition}.
+\newblock In {\em {IEEE Spoken Language Technology Workshop ({SLT} 2014)}}.
+
+\bibitem[Serizel and Giuliani(2014)]{SerGiu2014}
+Serizel, R. and Giuliani, D. (2014).
+\newblock {Deep neural network adaptation for children's and adults' speech
+  recognition}.
+\newblock In {\em {Proc. of the First Italian Computational Linguistics
+  Conference}}, Pisa, IT.
+
+\bibitem[Sivadas and Hermansky(2004)]{sivadas04}
+Sivadas, S. and Hermansky, H. (2004).
+\newblock On use of task independent training data in tandem feature
+  extraction.
+\newblock In {\em {Proc. of IEEE ICASSP}}, volume~1, pages I--541--4.
+
+\bibitem[Steidl et~al.(2003)Steidl, Stemmer, Hacker, N{\"o}th, and
+  Niemann]{SteSteHacNotNie03}
+Steidl, S., Stemmer, G., Hacker, C., N{\"o}th, E., and Niemann, H. (2003).
+\newblock {Improving Children's Speech Recognition by HMM Interpolation with an
+  Adults' Speech Recognizer}.
+\newblock In {\em {Pattern Recognition, 25th DAGM Symposium}}, pages 600--607.
+
+\bibitem[Stolcke et~al.(2006)Stolcke, Grezl, Hwang, Lei, Morgan, and
+  Vergyri]{stolcke06}
+Stolcke, A., Grezl, F., Hwang, M.-Y., Lei, X., Morgan, N., and Vergyri, D.
+  (2006).
+\newblock {Cross-Domain and Cross-Language Portability of Acoustic Features
+  Estimated by Multilayer Perceptrons}.
+\newblock In {\em {Proc. of IEEE ICASSP}}, volume~1, pages 321--334.
+
+\bibitem[Swietojanski et~al.(2012)Swietojanski, Ghoshal, and
+  Renals]{swietojanski12}
+Swietojanski, P., Ghoshal, A., and Renals, S. (2012).
+\newblock Unsupervised cross-lingual knowledge transfer in {DNN}-based {LVCSR}.
+\newblock In {\em {Proc. of IEEE SLT Workshop}}, pages 246--251.
+
+\bibitem[Thomas et~al.(2013)Thomas, Seltzer, Church, and Hermansky]{thomas13}
+Thomas, S., Seltzer, M., Church, K., and Hermansky, H. (2013).
+\newblock Deep neural network features and semi-supervised training for low
+  resource speech recognition.
+\newblock In {\em {Proc. of IEEE ICASSP}}, pages 6704--6708.
+
+\bibitem[Vesel{\`y} et~al.(2010)Vesel{\`y}, Burget, and Gr{\'e}zl]{vesely10}
+Vesel{\`y}, K., Burget, L., and Gr{\'e}zl, F. (2010).
+\newblock Parallel training of neural networks for speech recognition.
+\newblock In {\em Text, Speech and Dialogue}, pages 439--446. Springer.
+
+\bibitem[Wegmann et~al.(1996)Wegmann, McAllaster, Orloff, and
+  Peskin]{WegMcaOrlPek96}
+Wegmann, S., McAllaster, D., Orloff, J., and Peskin, B. (1996).
+\newblock {Speaker Normalisation on Conversational Telephone Speech}.
+\newblock In {\em {Proc. of IEEE ICASSP}}, pages I--339--341, Atlanta, GA.
+
+\bibitem[Welling et~al.(1999)Welling, Kanthak, and Ney]{WelKanNey99}
+Welling, L., Kanthak, S., and Ney, H. (1999).
+\newblock {Improved Methods for Vocal Tract Normalization}.
+\newblock In {\em {Proc. of IEEE ICASSP}}, volume~2, pages 761--764, Phoenix,
+  AZ.
+
+\bibitem[Wilpon and Jacobsen(1996)]{WilJac96}
+Wilpon, J.~G. and Jacobsen, C.~N. (1996).
+\newblock {A Study of Speech Recognition for Children and Elderly}.
+\newblock In {\em {Proc. of IEEE ICASSP}}, pages 349--352, Atlanta, GA.
+
+\bibitem[W\"{o}llmer et~al.(2011)W\"{o}llmer, Schuller, Batliner, Steidl, and
+  Seppi]{Wollmer11}
+W\"{o}llmer, M., Schuller, B., Batliner, A., Steidl, S., and Seppi, D. (2011).
+\newblock Tandem decoding of children's speech for keyword detection in a
+  child-robot interaction scenario.
+\newblock {\em ACM Transasctions Speech Language Processing}, 7(4):12:1--12:22.
+
+\bibitem[Woodland et~al.(1994)Woodland, Odell, Valtchev, and
+  Young]{WooOdeValYou94}
+Woodland, P., Odell, J.~J., Valtchev, V., and Young, S.~J. (1994).
+\newblock Large vocabulary continuous speech recognition using htk.
+\newblock In {\em {Proc. of IEEE ICASSP}}, volume~2, pages 125--128.
+
+\bibitem[Yochai and Morgan(1992)]{YocMor92}
+Yochai, K. and Morgan, N. (1992).
+\newblock {GDNN}: a gender-dependent neural network for continuous speech
+  recognition.
+\newblock In {\em Proc. of Iternational Joint Conference on Neural Networks},
+  volume~2, pages 332--337.
+
+\end{thebibliography}

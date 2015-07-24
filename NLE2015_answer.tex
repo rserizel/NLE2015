@@ -1,0 +1,185 @@
+\documentclass[]{article}
+
+%opening
+\title{Answer to decision on NLE-ARTC-15-0019 (Deep-neural network approaches for speech recognition with heterogeneous groups of speakers including children)}
+\author{Romain Serizel, Diego Giuliani}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Reviewer 1}
+\paragraph{Comments 1-3, 5-7, 9, 11, 13-14, 31}
+
+~
+
+This has been corrected
+\paragraph{4. Page 7. 3rd equation. How is the quantity $p(X)$ calculated?}
+
+~
+
+$p(X)$ should actually be $p(S)$. This has been corrected.
+
+
+\paragraph{8. Page 10, the penultimate paragraph, starting "The VTLN procedure..." is not clear. In the DNN that learns the warping
+factor, are the inputs individual feature vectors or whole utterances? The figure suggests individual feature vectors, but the
+sentence "Then training utterances and corresponding warping factors" suggests utterances. In the second part of this paragraph "This DNN is then used to produce the posterior probabilities of the VTLN warping factors..." needs to be clarified. Specifically you need to
+say that the outp[ut of this DNN is a vector, and the dimension of the vector corresponds to the number of discrete VTLN normalisation
+factors that are considered. This is clarified later, but it is confusing at this point.}
+
+~
+
+The paragraph has been modified into:
+
+\textit{The VTLN procedure is first applied to generate a warping factor for each  utterance in the  training set. Each acoustic feature vector in the utterance is labeled with the utterance warping factor. Then, training acoustic feature vectors and corresponding warping factors are used to train a DNN classifier. Each class of the DNN correspond to one of the discrete VTLN factors and the dimension of the DNN output corresponds to the number of discrete VTLN factors. The DNN learns to infer the VTLN warping factor from the acoustic feature vector (Figure~\ref{fig1}) or more precisely the posterior probability of each VTLN factors knowing the input acoustic feature vector. This DNN will be referred to as DNN-warp.}
+
+\paragraph{10.1 Page 12. The first sentence is not grammatical and needs attention.}
+
+~
+
+The sentence has been modified into:
+
+\textit{The ultimate goal here is not to estimate the VTLN warping factors but to perform robust speech recognition on heterogeneous corpora. To this end, the DNN-warp and the DNN-HMM can be optimised jointly (Figure~3).}
+
+\paragraph{10.2 Also, there is more discussion of the "posteriors of the warping factor" and this has still not been explained, and the phrase "posteriors of the warping factor" suggests that there is only one warping factor.}
+
+~
+
+The posteriors probabilities are now explained p10 (see also comment 8). "Posterior probabilities of the warping factor" has been replaced everywhere by "Posterior probabilities of the warping factors" to avoid confusion.
+
+\textbf{\underline{Diego:} 12. Page 13, 4.1.1 given that VTLN is likely to be most effective for younger children, it would be informative to see the distribution of ages in the ChildIt corpus.}
+\paragraph{13. 4.1.1 and 4.1.2 say something about the transcriptions of the data that are available - word-level or phone-level?}
+
+~
+
+It is now mentionned for each corpus only word-level transcription is available. Also, at the begining of 24.2 we explain how the phone level transcription are obtained:
+
+\textit{The approaches proposed in this paper have been first tested on small corpora (ChildIt + APASCI) for phone recognition to explore as many set-ups as possible in a limited amount of time. The reference phone-level transcriptions are obtained with Viterbi forced-alignement performed with our best HMM-GMM system at the moment of the experiments.}
+
+%15. Page 15, 4.2.2. Please explain a little more about how the
+%Hamming window is applied to the sequence of feature vectors. Is
+%this normal in DNN training?
+%16. Page 15, 1 line later, what was the rationale for choosing DCT
+%(on the previous page you applied HLDA)
+%17. Page 15, 2nd and 3rd paragraphs. How was the size of the network
+%chosen? How were all of the parameters in DNN training chosen? Is
+%performance sensitive to the precise values of these parameters?
+\textbf{\underline{Diego:} 18. Page 16. 3rd line. Please explain what is meant by "... single consonants and their germinant counterparts..." I have no idea what this means.}
+\paragraph{19. Page 16, 4.3. Does the HMM set used for word recognition use the same set of tied states as the previous HMM set?}
+
+~
+
+The set of tied states are different. This is now mentionned explicitly.\\
+Paragraph 4.2.1:
+
+\textit{Acoustic models  are 3039 tied-state triphone HMM based on a set of 48 phonetic units derived from the SAMPA Italian alphabet.}
+\\
+Paragraph 4.3.1:
+
+\textit{The HMM-GMM are similar to those used for phone recognition except that they use more Gaussian densities to benefit from the extensive training data. Acoustic models  are 5021 tied-state triphone HMM based on a set of  48 phonetic units  derived from the  SAMPA Italian alphabet. Each tied-state is modelled with  a mixture of  32 Gaussian densities   having  a  diagonal   covariance  matrix. In  addition, ``silence''  is  modelled  with  a  Gaussian mixture  model  having  32 Gaussian densities.}
+\paragraph{20. line 2. Be more precise. What exactly do you mean by saying that the DNN was trained on a different set of Gaussians? This is too imprecise.}
+
+~
+
+This has been corrected, paragraph 4.3.2 is now:
+\textit{The DNN  are similar to those  used for phone  recognition except that they are  trained on a different  set of targets. The  targets of the DNN are the 5021 tied-states obtained from the word recognition HMM-GMM training on the mixture of adults' and children's  speech (ChildIt + IBN). The DNN has 4 hidden  layers, each of which  contains 1500 elements  such that the DNN architecture  can be summarised  as follows: 208  x 1500 x  1500 x 1500 x 1500 x 5021.}
+
+\paragraph{21. Page 17, 4.4. In adaptation are all of the other DNN training parameters the same as in 4.2.2}
+
+~
+
+Yes all the training parameters are similar to 4.2. Paragrazph 4.4 is now:
+
+\textit{One option is to adapt an already trained general DNN  to group specific corpora. The data architecture is the same as described above. The initial DNN weights are the weights obtained with a pre-training/training procedure applied on all training data available  (ChildIt+APASCI, respectively ChildIt + IBN). The DNN is then trained with back propagation on a group specific corpora (ChildIt, adult female speech in APASCI and adult male speech in APASCI, respectively IBN). The training parameters are the same as during the general training (4.2.2 and 4.3.2, respectively) and the learning rate follows the same rule as above. The mini-batch size is 512 and a first-order momentum of 0.5 is applied.}
+
+\paragraph{22. Page 17, last line. This is the first time that the number of VTLN factors is specified, or even that it is acknowledged that only a discrete set of factors is considered and therefore it is possible to create a vector of posterior probabilities. This basic principle needs to be introduced much earlier to understand how the DNN for estimating VTLN factor posteriors works.}
+
+This is now mentionned more explicitly in paragraph 3.1: 
+
+\textit{[\dots] A  well  known  method  for estimating  the scaling  factor is \textbf{ based on  a  grid search  over a  discrete set  of possible scaling  factors} by maximizing the likelihood  of warped data given  a  current set  of  HMM-based acoustic  models~(Lee and Rose, 1996). Frequency scaling  is performed by  warping the power  spectrum during signal  analysis  or, for  filter-bank  based  acoustic front-end,  by changing the  spacing and width  of the filters while  maintaining the spectrum  unchanged~(Lee and Rose, 1996). In  this  work we  adopted  the latter approach \textbf{considering a discrete set of VTLN factors}. Details on the VTLN implementation  are provided in Section~4.5.}
+
+Also an explanation about the link between VTLN factors and posterior probabilities has been been given as answer to comment 8.
+
+\textbf{\underline{Diego:} 23. Page 18. 1st paragraph. Why do you use HMMs with just 1 Gaussian component per state to optimise the VTLN factor? }
+
+\paragraph{24. Page 18, paragraph 3. In the specification of the DNN, what is the meaning of the (5021) in brackets? Does this mean that there are different numbers of tied states in different systems? If so, please explain.}
+
+~
+
+The paragraph has been modified into:
+
+\textit{[\dots] The new DNN acoustic model  has 4 hidden layers,
+each of  which contains 1500  elements such that the  DNN architecture
+can then be summarized  as follows: 233 x 1500 x 1500  x 1500 x 1500 x
+3039 for phone recognition (233 x 1500 x 1500  x 1500 x 1500 x 5021 for word recognition).}
+
+\paragraph{25. Page 18. Where does the learning rate of 0.0002 come from?}
+
+~
+
+The learning rate was chosen empirically. For higher learning rates, the training accuracy would improve but not the cross-validation accuracy. The DNN obtained were not saved by the training script until both training and cross-validation accuracy progressed (at learning rate 0.0002). Setting the learning rate directly at 0.0002 is just a way to speed up the training process. Paragraph 4.6 is now:
+
+\textit{The DNN-warp and DNN-HMM can be fine-tuned jointly with back-propagation. In such case, the starting learning rate is set to 0.0002 in the first 4 hidden layers (corresponding to the DNN-warp) and to 0.0001 in the last 4 hidden layers (corresponding to the DNN-HMM). The learning rate is chosen empically as the highest value for which both training accuracy and cross-validation accuracy imrove. Setting a different learning rate in the first 4 hidden layers and the last 4 hidden layers is done in a attempt to overcome the vanishing gradient effect in the 8 layers DNN obtained from the concatenation of the DNN-warp and the DNN-HMM. The learning rates are then adapted following the same schedule as described above. The joint optimisation is done with a modified version of the TNet software package~(Vesely et al., 2010).}
+%26. A general point. The adapted system is close to optimal in all
+%cases, but most of the discussion is biased towards the benefits of
+%VTLN. For me, one of the most interesting consequences of this paper
+%is that adaptation appears to compensate for VTL differences without
+%any explicit VTLN. Of course, one of the problems with the "adapted
+%system" is that model selection is not done automatically. A simple
+%way to achieve this would be to compute the probability of an
+%utterance for all three adapted models and then apply the highest
+%scoring one to recognition. Why didn't you do something like this?
+%It may be that even if this approach makes an "error" and, say,
+%classifies a particular child as a female adult, the female adult
+%model may give best performance on this child's data.
+%27. Page 22. In the earlier overview of the systems, did you include
+%the case of MFCC feature vectors augnmented with VTLN warping factors
+%obtained in the normal way?
+%28. Page 22. Exactly how are the posterior probabilities averaged to
+%utterance level, and why is this done?
+%29. Page 23. Final paragraph. This is an example of what I was
+%indicating earler. The first line of the final paragraph is very
+%"pro-VTLN" and ignores the fact that better performance is obtained
+%by simple adaptation.
+%30. Just a comment, but this seems a lot of effort to obtain a
+%VTLN-based system that outperforms adaptation/model selection, and
+%for children the best perofrmance is obtained with model selection
+%augmented with VTLN!
+\paragraph{32. Page 28. Lines 5-7. Augmenting features that have already been VTLN normalised with thge posteriort probabilities of the VTLN factors seems an odd thing to do. What is the motivation/justification?}
+
+~
+
+VTLN-normalisation operates at utterances level whereas posterior probabilities are obtained at frame level. While estimating VTLN factors on a longer time unit (utterance) should allow for a more accurate average estimation, the "true" warping factor might be fluctuating in time [ref]. We belive that combining VTLN normalisation at utterance level and posterior probabilities estimated at frame level should help overcoming this problem. According to results, this seems to be true. A second paragraph stating this has been added in 5.2.2:
+
+\textit{The approaches combining VTLN-normalised features and posterior probabilties aim at testing the complementary between VTLN-normalisation that operates at utterances level and posterior probabilities that are obtained at frame level. While estimating VTLN factors on a longer time unit(utterance) should allow for a more accurate average estimation, the "true" warping factor might be fluctuating in time [ref]. Combining VTLN normalisation at utterance level and posterior probabilities estimated at frame level should help overcoming this problem.}
+
+
+\section{Reviewer 2}
+
+\textbf{\underline{Diego:} 1. In section 4.5, the authors conduct a grid search based on a set of 25 warping factors via the standard maximum likelihood using a triphone single Gaussian system. My question is that are there any difficulties in using a more robust triphone GMM system to search the warping factors? Single Gaussian is definitely not robust enough for a reliable warping factor. The easiest argument is
+that at least two Gaussians are needed to model both genders. In addition, what if the warping factor is per speaker rather than per utterance?}
+%2. The speaker adaptation is achieved by retraining of an age/gender independent DNN with an age/gender specific corpus “adaptation”. How does this approach compare with the stateoftheart DNN adaptation schemes? For example, using ivectors or speaker codes as additional inputs to the DNN? What if the speakeradapted features (e.g., fMLLR) are used as the DNN inputs?
+%3. How is system combination performed? I am not sure I understand what the authors mean by “features level” in section 5.1.4. More implementation details are appreciated. How about the recognitionlevel combination schemes, e.g., confusion network combination? Bayesian risk decoding? etc.
+
+\section{Reviewer 3}
+
+\paragraph{Comments III-V}
+
+~
+
+This has been corrected
+
+%I. Why the baseline DNN system is not sequence trained., eg. bMMI,
+%sMBR which is now standard DNN based acoustic modeling techniques and
+%should be used as baselines.
+%II. In the under-resourced conditions, the authors should also
+%investigate more adaptation techniques, e.g., regularization, LIN.,
+%LON., etc. to see if they perform better. I would like to see more
+%experimental results on more DNN based adaptation approaches.
+
+
+
+
+
+\end{document}
