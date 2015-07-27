@@ -373,8 +373,8 @@ amount of training data for children and adults, respectively, IBN corpus contai
 \hline \hline
          &\multicolumn{5}{ c} {Speech Corpus}\\ 
          &ChildIt&APASCI(f)&APASCI(m)&IBN(f)&IBN(m)\\ \hline
-Train&7h15m &  2h40m&  2h40m&23h00m&25h00m\\\noalign{\vspace {.5cm}}
-Test&  2h20m &  0h20m&0h20m& 1h00m& 1h00m\\
+Train&7h:15m &  2h:40m&  2h:40m&23h:00m&25h:00m\\\noalign{\vspace {.5cm}}
+Test&  2h:20m &  0h:20m&0h:20m& 1h:00m& 1h:00m\\
 \hline\hline
 \end{tabular}
 \end{minipage}
@@ -385,13 +385,37 @@ Test&  2h20m &  0h20m&0h20m& 1h00m& 1h00m\\
 
 \subsubsection{ChildIt}
 
-The   ChildIt   corpus~\citep{GiuGer03,GerGiuBru07}   is  an   Italian,
-task-independent, speech corpus that consists of  clean read speech
-from  children  aged from  7  to  13 years,  with  a  mean  age of  10
-years. For recordings in the corpus a word-level transcription is available. The  overall duration  of audio  recordings in  the corpus  is 10h:48m
-hours. Speech was  collected from 171 children. The corpus was partitioned into: a
-training set consisting of data from 115 speakers for a total duration
-of 7h15m;  a development set consisting  of data from  14 speakers,  for a total durations of 0h:49m;  a test  set consisting of  data from  42 speakers balanced with respect to age and gender for   a  total  duration  of  of   2h20m.
+The  ChildIt corpus~\citep{GiuGer03,GerGiuBru07}  consists  of Italian
+read sentences  collected from  171 children (86  male and  85 female)
+aged between 7  and 13, with a mean age of  10 years.  Recordings took
+place at school, usually in the computer room or in the library.  Each
+child  was asked  to read  a set  of sentences  prepared  according to
+her/his  grade.   Figure~\ref{ChildItAge} reports the distribution of children per grade.
+
+
+\begin{table}
+  \begin{minipage}{\textwidth}
+\begin{tabular}{cccccccc}
+\hline \hline
+        & \multicolumn{7}{c} {Grade} \\
+        & 2  &  3  & 4   & 5   & 6   & 7    & 8 \\ \hline
+ N. Speakers       & 24 &  24 & 23  & 24  & 28  &  26  & 22 \\ \hline\hline
+\end{tabular}
+\end{minipage}
+\caption{Distribution of speakers in the ChildIt corpus per grade. Children in grade 2 are approximatively 7 years old while children in grade 8 are approximatively 13 years old. \label{ChildItAge}}
+
+\end{table}
+
+
+The overall  duration of audio recordings in  the corpus is
+10h:24m. For  all  recordings  in  the  corpus  a
+word-level   transcription   is  available.    
+
+The corpus was partitioned into: a training set  consisting of data from 115 speakers
+for a  total duration of 7h:15m;  a development set  consisting of data
+from  14  speakers,  for a  total  durations  of  0h:49m; a  test  set
+consisting of data  from 42 speakers balanced with  respect to age and
+gender for a total duration of of 2h:20m.
 
 
 \subsubsection{APASCI}
@@ -408,7 +432,7 @@ balanced per gender, for a total duration of 0h40m.
 The IBN corpus is composed of speech from several radio and television
 Italian news programs~\citep{GerGiuBru09}. It consists of adult speech
 only, with word-level transcriptions. The IBN corpus was  partitioned into a training set, consisting
-of 52h00m of speech, and a test set formed by 2h00m of speech. During the experiments presented here 2h00m of male speech and 2h00m of female speech are extracted from the training set to be used as development set during the DNN training. The resulting training set is then partionned into 25h00m of male speech and 23h00m of female speech.
+of 52h:00m of speech, and a test set formed by 2h:00m of speech. During the experiments presented here 2h:00m of male speech and 2h:00m of female speech are extracted from the training set to be used as development set during the DNN training. The resulting training set is then partionned into 25h:00m of male speech and 23h:00m of female speech.
 
 % The  IBN training  set  includes  also  two small  task
 % independent   corpora  called   APASCI  and   SPEEDATA.    The  APASCI
@@ -425,7 +449,18 @@ of 52h00m of speech, and a test set formed by 2h00m of speech. During the experi
 % adopted for APASCI and consisting of about 5h:48m of speech.
 
 \subsection{Phone recognition systems}
-The approaches proposed in this paper have been first tested on small corpora (ChildIt + APASCI) for phone recognition to explore as many set-ups as possible in a limited amount of time. The reference phone-level transcriptions are obtained with Viterbi forced-alignement performed with our best GMM-HMM system at the moment of the experiments.
+The approaches proposed in this paper have been first tested on small
+corpora (ChildIt + APASCI) for phone recognition to explore as many
+set-ups as possible in a limited amount of time.  The
+reference phone transcription of an utterance was derived from the
+corresponding word transcription by performing Viterbi decoding on a
+pronunciation network.  This pronunciation network was built by
+concatenation of the phonetic transcriptions of the words in the word
+transcription.  In doing this alternative word pronunciations were
+taken into account and an optional insertion of the silence model
+between words was allowed.
+
+%The reference phone-level transcriptions are obtained with Viterbi forced-alignement performed with our best GMM-HMM system at the moment of the experiments.
 \subsubsection{GMM-HMM}\label{sssection:base}
 
 The  acoustic  features are  13  mel  frequency cepstral  coefficients
@@ -467,14 +502,17 @@ phone  unit   was  employed.   In  this   network  uniform  transition
 probabilities  are  associated to  looped  transitions.  In  computing
 recognition  performance,  in terms  of  PER,  no
 distinction  was made  between  single consonants  and their  geminate
-counterparts.  In this way, the  set of phonetic labels was reduced to
-28 phone labels.  For all corpora, reference phone transcriptions were
-derived  from  prompted texts  by  performing  Viterbi  decoding on  a
-pronunciation network  for each utterance.   The pronunciation network
-of  an   utterance  was  built   by  concatenation  of   the  phonetic
-transcriptions  of the  words  in  the prompted  text.  In doing  this
-alternative word pronunciations were taken into account and an optional
-insertion of the silence model between words was allowed.
+counterparts.  In this way, the  set of phonetic labels was reduced
+from 48 to 28 phone labels.  
+
+% For all corpora, reference phone transcriptions were
+% derived  from  prompted texts  by  performing  Viterbi  decoding on  a
+% pronunciation network  for each utterance.   The pronunciation network
+% of  an   utterance  was  built   by  concatenation  of   the  phonetic
+% transcriptions  of the  words  in  the prompted  text.  In doing  this
+% alternative word pronunciations were taken into account and an optional
+% insertion of the silence model between words was allowed.
+
 
 % Recognition  results  were  always  generated  in  a  single  decoding pass.
 
@@ -805,7 +843,7 @@ This work was partially funded by the European project EU-BRIDGE, under the cont
 %\bibliographystyle{apalike}
 \setlength\bibsep{\baselineskip}
 \bibliographystyle{plainnat}
-\bibliography{NLE_article_nat}      % Bibliography file (usually '*.bib' )
+\bibliography{NLE_article}      % Bibliography file (usually '*.bib' )
 
 % or include bibliography directly:
 % \begin{thebibliography}

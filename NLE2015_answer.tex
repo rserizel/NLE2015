@@ -49,6 +49,12 @@ The sentence has been modified into:
 The posteriors probabilities are now explained p10 (see also comment 8). "Posterior probabilities of the warping factor" has been replaced everywhere by "Posterior probabilities of the warping factors" to avoid confusion.
 
 \textbf{\underline{Diego:} 12. Page 13, 4.1.1 given that VTLN is likely to be most effective for younger children, it would be informative to see the distribution of ages in the ChildIt corpus.}
+
+~
+
+A figure reporting the age distribution has been added in Section 4.1.1.
+
+
 \paragraph{13. 4.1.1 and 4.1.2 say something about the transcriptions of the data that are available - word-level or phone-level?}
 
 ~
@@ -66,6 +72,35 @@ It is now mentionned for each corpus only word-level transcription is available.
 %chosen? How were all of the parameters in DNN training chosen? Is
 %performance sensitive to the precise values of these parameters?
 \textbf{\underline{Diego:} 18. Page 16. 3rd line. Please explain what is meant by "... single consonants and their germinant counterparts..." I have no idea what this means.}
+
+~
+
+In phonetics, gemination or consonant elongation happens when a spoken
+consonant is  pronounced for an audibly  longer period of  time than a
+short  consonant. Gemination is  distinct from  stress and  may appear
+independently of  it. Gemination literally means  ``twinning'', and is
+from the same Latin root as ``Gemini''.
+
+Consonant length  is distinctive in some  languages including Italian.
+In  these  languages most  consonants  have  two  versions: the  short
+(``single'') version  and the corresponding long  version (its ``geminate                                                 
+counterpart'').
+
+For ASR  purposes all  consonants are modeled,  however, traditionally
+for  the Italian  language when  computing the  phone error  rate ``no                                                    
+distinction  is  made between  single  consonants  and their  geminate                                                    
+counterparts''. The  motivation is  that the main  acoustic difference
+between ``single  consonants and their geminate  counterparts'' is the
+duration  so that  a single  consonant is  highly confusable  with its
+geminate counterpart.  To avoid to inflate  phone recognition results,
+confusion  between a  consonant and  its geminate  counterpart  is not
+considered as an error.
+
+We have  not changed the  text in the  paper as it  seems sufficiently
+clear that  the phone error rate is  computed on a reduced  set of 28
+phone labels.
+
+
 \paragraph{19. Page 16, 4.3. Does the HMM set used for word recognition use the same set of tied states as the previous HMM set?}
 
 ~
@@ -102,6 +137,33 @@ This is now mentionned more explicitly in paragraph 3.1:
 Also an explanation about the link between VTLN factors and posterior probabilities has been been given as answer to comment 8.
 
 \textbf{\underline{Diego:} 23. Page 18. 1st paragraph. Why do you use HMMs with just 1 Gaussian component per state to optimise the VTLN factor? }
+
+~
+
+The   approach  for  estimating   the  VTLN   scaling factors  making   use  of
+speaker-independent  triphone  HMMs  with  just 1 Gaussian density  per  state  was
+proposed by Welling et al. in the reference paper:
+\begin{itemize}
+\item L. Welling, S. Kanthak and  H.~Ney, ``Improved Methods for Vocal Tract                                              
+Normalization}'', in Proc. of IEEE ICASSP, 1999, Vol. 2, pp. 761-764.
+\end{itemize}
+
+In the paper it is empirically verified that having 1 Gaussian density
+per state is a good  choice when compared
+with the use of many Gaussian densities per state.
+
+In past works, we  adopted this approach  in the context  of children's
+and adults' speech recognition  with good results,  see for example  the reference
+papers:
+
+\begin{itemize}
+\item M. Gerosa, D. Giuliani  and Fabio Brugnara, ``Acoustic variability and
+automatic recognition of children’s speech'', Speech Communication,
+2007, Vol. 49, N. 10-11, pp. 847-860.
+\item M. Gerosa, D. Giuliani and Fabio Brugnara, ``Towards age-independent acoustic modeling'',
+Speech Communication, 2009, Vol. 51, N. 6, pp. 499-509.
+\end{itemize}
+
 
 \paragraph{24. Page 18, paragraph 3. In the specification of the DNN, what is the meaning of the (5021) in brackets? Does this mean that there are different numbers of tied states in different systems? If so, please explain.}
 
@@ -159,6 +221,37 @@ VTLN-normalisation operates at utterances level whereas posterior probabilities 
 
 \textbf{\underline{Diego:} 1. In section 4.5, the authors conduct a grid search based on a set of 25 warping factors via the standard maximum likelihood using a triphone single Gaussian system. My question is that are there any difficulties in using a more robust triphone GMM system to search the warping factors? Single Gaussian is definitely not robust enough for a reliable warping factor. The easiest argument is
 that at least two Gaussians are needed to model both genders. In addition, what if the warping factor is per speaker rather than per utterance?}
+
+The   approach  for  estimating   the  VTLN   scaling factors  making   use  of
+speaker-independent  triphone  HMMs  with  just 1 Gaussian density  per  state  was
+proposed by Welling et al. in the reference paper:
+\begin{itemize}
+\item L. Welling, S. Kanthak and  H.~Ney, ``Improved Methods for Vocal Tract                                              
+Normalization}'', in Proc. of IEEE ICASSP, 1999, Vol. 2, pp. 761-764.
+\end{itemize}
+
+In the paper it is empirically verified that having 1 Gaussian density
+per state is a good  choice when compared
+with the use of many Gaussian densities per state.
+
+In past works, we  adopted this approach  in the context  of children's
+and adults' speech recognition  with good results,  see for example  the reference
+papers:
+
+\begin{itemize}
+\item M. Gerosa, D. Giuliani  and Fabio Brugnara, ``Acoustic variability and
+automatic recognition of children’s speech'', Speech Communication,
+2007, Vol. 49, N. 10-11, pp. 847-860.
+\item M. Gerosa, D. Giuliani and Fabio Brugnara, ``Towards age-independent acoustic modeling'',
+Speech Communication, 2009, Vol. 51, N. 6, pp. 499-509.
+\end{itemize}
+
+Although VTLN scaling factor selection on a speaker-by-speaker basis
+could be more robust, in this work we adopted a per utterance approach
+as this approach better matches with a realistic application scenario
+in which only little data is presented for decoding.
+
+
 %2. The speaker adaptation is achieved by retraining of an age/gender independent DNN with an age/gender specific corpus “adaptation”. How does this approach compare with the stateoftheart DNN adaptation schemes? For example, using ivectors or speaker codes as additional inputs to the DNN? What if the speakeradapted features (e.g., fMLLR) are used as the DNN inputs?
 %3. How is system combination performed? I am not sure I understand what the authors mean by “features level” in section 5.1.4. More implementation details are appreciated. How about the recognitionlevel combination schemes, e.g., confusion network combination? Bayesian risk decoding? etc.
 
