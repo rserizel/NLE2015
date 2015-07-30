@@ -1,0 +1,42 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abdel-Hamid and Jiang(2013)]{abdel2013fast}
+Ossama Abdel-Hamid and Hui Jiang.
+\newblock Fast speaker adaptation of hybrid nn/hmm model for speech recognition
+  based on discriminative learning of speaker code.
+\newblock In \emph{Acoustics, Speech and Signal Processing (ICASSP), 2013 IEEE
+  International Conference on}, pages 7942--6. IEEE, 2013.
+
+\bibitem[Dehak et~al.(2011)Dehak, Kenny, Dehak, Dumouchel, and
+  Ouellet]{dehak2011front}
+Najim Dehak, Patrick Kenny, R{\'e}da Dehak, Pierre Dumouchel, and Pierre
+  Ouellet.
+\newblock Front-end factor analysis for speaker verification.
+\newblock \emph{Audio, Speech, and Language Processing, IEEE Transactions on},
+  19\penalty0 (4):\penalty0 788--98, 2011.
+
+\bibitem[Li and Sim(2010)]{li2010comparison}
+Bo~Li and Khe~Chai Sim.
+\newblock Comparison of discriminative input and output transformations for
+  speaker adaptation in the hybrid nn/hmm systems.
+\newblock 2010.
+
+\bibitem[Mangu et~al.(2000)Mangu, Brill, and Stolcke]{mangu2000finding}
+Lidia Mangu, Eric Brill, and Andreas Stolcke.
+\newblock Finding consensus in speech recognition: word error minimization and
+  other applications of confusion networks.
+\newblock \emph{Computer Speech \& Language}, 14\penalty0 (4):\penalty0
+  373--400, 2000.
+
+\bibitem[Saon et~al.(2013)Saon, Soltau, Nahamoo, and Picheny]{saon2013speaker}
+George Saon, Hagen Soltau, David Nahamoo, and Michael Picheny.
+\newblock Speaker adaptation of neural network acoustic models using i-vectors.
+\newblock In \emph{Automatic Speech Recognition and Understanding (ASRU), 2013
+  IEEE Workshop on}, pages 55--9. IEEE, 2013.
+
+\end{thebibliography}
