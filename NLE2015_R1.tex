@@ -202,7 +202,7 @@ adaptation~\citep{SerGiu2014}      and      VTLN     approaches      for
 DNN-HMM based ASR~\citep*{SerGiu2014a}.  An approach to  optimise jointly  the DNN
 that extracts the posterior probabilities of  the warping factors and the DNN-HMM is
 proposed here,  combination of the different  approaches is considered
-and the different systems performance  are evaluated not only on phone
+and performance of the different systems are evaluated not only on phone
 recognition but also on word recognition. 
 
 This paper is a proof of concept and the authors voluntarily limited its focus to simple ASR systems. Only  age and gender groups problems and approaches based only on acoustic modeling and VTLN transform are considered here in order to focus on the effects of these particular approaches. Therefore state-of-the-art approaches based on speaker identity models such as I-vectors~(\citealp*{dehak2011front,saon2013speaker}; \citealp{42536}), speaker codes~\citep*{abdel2013fast}, linear input networks and linear output networks~\citep*{li2010comparison} are beyond the scope of this paper. At this initial stage, the authors decided to focus on approaches based only on acoustic modelling therefore excluding approaches requiring an entire decoding stream (or at least a language model), such as approaches based on confusion networks~\citep*{mangu2000finding}.
@@ -217,27 +217,26 @@ Section~\ref{section:expR}.  Finally,  conclusions  of the  paper  are
 drawn in Section~\ref{section:concl}.
 
 \section{DNN adaptation}\label{section:DNN}
-A DNN is a feed-forward neural network where the neurons are arranged in fully connected layers. The input layer processes the feature vectors (augmented with context) and the output layer provides (in the case of ASR) the posterior probability of the (sub)phonetic units. The layers between the input layer and the output layer are called hidden layers. DNN are called deep because they are composed of many layers. Even though shallow neural network architectures (i.e., with few hidden layers) are supposed to be able to model any function they may require a huge of parameters to do so. The organisation of the neurons in a deep architecture allows to use parameters more efficiently and to model the same function as a shallow architectures with less parameters~\citep*{bengio2013representation}. Deep architectures also allow to extract high level features that are more invariant (and therefore more robust) than low level features~\citep{hinton12}. They also allow to close the 
-semantic gap between the features and the (sub)phonetic units. 
+A DNN is a feed-forward neural network where the neurons are arranged in fully connected layers. The input layer processes the feature vectors (augmented with context) and the output layer provides (in the case of ASR) the posterior probability of the (sub)phonetic units. The layers between the input layer and the output layer are called hidden layers. DNN are called deep because they are composed of many layers. Even though shallow neural network architectures (i.e., with few hidden layers) are supposed to be able to model any function they may require a huge of parameters to do so. The organisation of the neurons in a deep architecture allows to use parameters more efficiently and to model the same function as a shallow architectures with less parameters~\citep*{bengio2013representation}. Deep architectures also allow to extract high level features that are more invariant (and therefore more robust) than low level features~\citep{hinton12}. They also allow to close the semantic gap between the features and the (sub)phonetic units. 
 
 The DNN used in this papers have sigmoid activation functions in the hidden layers:
 \begin{align}
-h & = \textbf{w}.\textbf{y} + b\nonumber\\
+h & = \textbf{w}.\textbf{y} + b \nonumber\\
   \sigma(h) & = \frac{1}{1+ e^{-h} }\nonumber
 \end{align}
-with $\textbf{y}$ the vector of input to the layer, $\textbf{w}$ the weights of the layer and $b$ the bias of the layer.
+with $\textbf{y}$ the vector of input to the layer,  $\textbf{w}$ and $b$ the weights and the bias of a given neuron in  the layer, respectively.
 
-The target of the DNN presented here is to estimate posteriors probabilities. Therefore, it is chosen to use softmax activation in the output layer, as the the output then sum up to one:
+The target of the DNN presented here is to estimate posteriors probabilities. Therefore, it is chosen to use softmax activation in the output layer, as the output then sum up to one:
 \begin{equation}
- softmax(\textbf{h}_j)=\frac{e^{h_j}}{\sum\limits_i e^{h_i}}\nonumber
+ softmax(h_j)=\frac{e^{h_j}}{\sum\limits_i e^{h_i}}\nonumber
 \end{equation}
+with $i$ running over the neurons in the output layer.
 
-The posterior probabilities are then normalised by the prior probabilities of the observation to obtain the state emission likelihood used by the HMM. Following Bayes rule:
+The state posterior probabilities are then normalised by the state prior probabilities to obtain the state emission likelihood used by the HMM. Following the Bayes rule:
 \begin{equation}
  p(X|S)\propto \frac{p(S|X)}{p(S)} \nonumber
 \end{equation}
-
-Where $X$ is the observation and $S$ the HMM state.
+where $X$ is the acoustic observation and $S$ the HMM state.
 
 \subsection{Pre-training/training procedure}
 Training a DNN is a difficult tasks mainly because the optimisation criterion involved is non convex. Training a randomly initialised DNN with back-propagation would converge to one of the many local minima involved in the optimisation problem sometimes leading to poor performance~\citep{erhan10}. In recent works this limitation has been partly overcome by training on a huge amount of data (1700 hours in~\citet{42536}). However, this solution does not apply when tackling ASR for under-resourced groups of population where the amount of training data is limited by definition. In such cases, pre-training is a mandatory step to efficiently train a DNN. The aim of pre-training is to initialise the DNN weights to a better starting point than randomly initialised DNN and avoid the back-propagation training to be stuck in a poor local minima. Here generative training based on Restricted Boltzmann Machines (RBM)~\citep{hinton06,erhan10} is chosen. Once the DNN weights have been initialised with stacked RBM, the DNN is trained to convergence with back-propagation. More details about training and network parameters are presented in Sections~\ref{sssection:exp:DNN} and~\ref{sssection:exp:DNNW}.
@@ -293,7 +292,7 @@ speaker, or utterance, and the implementation of the frequency scaling
 during  speech  analysis.  A  well  known  method  for estimating  the
 scaling  factor is  based on  a  grid search  over a  discrete set  of
 possible scaling  factors by maximizing the likelihood  of warped data
-given  a  current set  of  HMM-based acoustic  models~\citep{LeeRos96}.
+given  its transcription and a  current set  of  HMM-based acoustic  models~\citep{LeeRos96}.
 Frequency scaling  is performed by  warping the power  spectrum during
 signal  analysis  or, for  filter-bank  based  acoustic front-end,  by
 changing the  spacing and width  of the filters while  maintaining the
@@ -327,8 +326,14 @@ each  utterance in the  training set. Each acoustic feature vector in the uttera
 % feature vector is  normalised and used to train  a DNN acoustic model.
 %
 % Answer: I removed the part above but kept the part below to explain how the system runs at decoding time
+%
 
-At  decoding time,  the DNN-warp  is  used to  produced the  posterior probabilities of  the warping factors which are  then concatenated with the acoustic  feature vector  (with context).  The  augmented features vector is used as input to the warping-factor aware DNN acoustic model to produce  posterior probabilities of the  triphone tied-states. This procedure  has the  advantage  to reduce  considerably the  complexity during decoding compared to standard VTLN~\cite{LeeRos96}.
+% Diego: I have commented the paragraph below
+%
+% At  decoding time,  the DNN-warp  is  used to  produced the  posterior probabilities of  the warping factors which are 
+% then concatenated with the acoustic  feature vector  (with context).  The  augmented features vector is used as input to % the warping-factor aware DNN acoustic model to produce  posterior probabilities of the  triphone tied-states. This 
+% procedure  has the  advantage  to reduce  considerably the  complexity during decoding compared 
+%to standard VTLN~\cite{LeeRos96}.
 
 
 During training  and testing  of the DNN-HMM  system, for  each speech
@@ -344,11 +349,17 @@ which is used as input to the DNN-HMM (Figure~\ref{fig2}).
  \end{figure}
  
 This approach has the  advantage to reduce considerably the complexity
-during decoding compared to the approach making use of VTLN normalised
-acoustic features that requires two decoding passes~(\citealp{LeeRos96}; \citealp*{WelKanNey99}). It also allows for flexible estimation of the warping factors: they could either be updated on a frame to frame basis or averaged at utterance level (see also Section~\ref{section:expR}).
+during decoding  compared to the  approach making use  of conventional
+VTLN normalised acoustic features that requires a preliminary decoding
+pass to obtain a transcript of acoustic data to be used for estimating
+the   warping   factor~(\citealp{LeeRos96}; \citealp*{WelKanNey99}). 
+It also allows for flexible estimation of the
+warping  factors: they could  either be  updated on  a frame  to frame
+basis     or    averaged    at     utterance    level     (see    also
+Section~\ref{section:expR}).
 
 \subsection{Joint optimisation}
-The ultimate goal here is not to estimate the VTLN warping factors but to perform robust speech recognition on heterogeneous corpora. To this end, the DNN-warp and the DNN-HMM can be optimised jointly (Figure~\ref{fig3}). The procedure is the following one: 1) first the DNN-warp is trained alone (Figure~\ref{fig1}), 2) the posteriors of the warping factors on the training set are obtained with the DNN-warp, 3) these posteriors of the warping factors are used as input to the DNN-HMM together with the acoustic features to produce an extended feature vector, 4) the DNN-HMM is trained (Figure~\ref{fig2}), 5)  the DNN-warp and the DNN-HMM are concatenated to obtained a deeper network that is fine-tuned with back-propagation on the training set (Figure~\ref{fig3}). Details about joint optimisation are presented in Section~\ref{sssection:exp:joint}
+The ultimate goal here is not to estimate the VTLN warping factors but to perform robust speech recognition on heterogeneous corpora. To this end, the DNN-warp and the DNN-HMM can be optimised jointly (Figure~\ref{fig3}). The procedure is the following one: 1) first the DNN-warp is trained alone (Figure~\ref{fig1}); 2) the posteriors of the warping factors on the training set are obtained with the DNN-warp; 3) these posteriors of the warping factors are used as input to the DNN-HMM together with the acoustic features to produce an extended feature vector; 4) the DNN-HMM is trained (Figure~\ref{fig2}); 5)  the DNN-warp and the DNN-HMM are concatenated to obtained a deeper network that is fine-tuned with back-propagation on the training set (Figure~\ref{fig3}). Details about joint optimisation are presented in Section~\ref{sssection:exp:joint}
 
   \begin{figure}
        \includegraphics[width=\textwidth]{fig3}
@@ -420,12 +431,14 @@ gender for a total duration of of 2h:20m.
 \subsubsection{APASCI}
 The    APASCI   speech    corpus~\citep*{AngBruFalGiuGreOmo94}    is   a
 task-independent,    high     quality,    acoustic-phonetic    Italian
-corpus. For recordings in the corpus a word-level transcription is available. APASCI was  developed at ITC-irst and consists  of speech data collected from  194 adult  speakers for a  total durations  of 7h:05m.
-The corpus  was partitioned  into: a training  set consisting  of data
-from 134  speakers for a total  duration of 5h19m;  a development set
+corpus. 
+APASCI consists  of read speech collected from  194 adult  speakers for a  total durations  of 7h:05m.
+For all recordings in the corpus a word-level transcription is available. 
+The corpus  is partitioned  into: a training  set consisting  of data
+from 134  speakers for a total  duration of 5h:19m;  a development set
 consisting of data  from 30 speakers balanced per  gender, for a total
-durations of  0h39m; a test set  consisting of data  from 30 speakers
-balanced per gender, for a total duration of 0h40m.
+durations of  0h:39m; a test set  consisting of data  from 30 speakers
+balanced per gender, for a total duration of 0h:40m.
 
 \subsubsection{IBN Corpus}
 The IBN corpus is composed of speech from several radio and television
@@ -541,11 +554,11 @@ distributed, with step 0.02, in the range 0.76-1.24. During both training and te
 a grid search over the 25 warping factors was performed.  The acoustic
 models   for   scaling   factor    selection,   carried   out   on   an
 utterance-by-utterance  basis, were speaker-independent  triphone HMM
-with  1 Gaussian  per state  and  trained on  un-warped children's  and
-adults' speech~\citep{WelKanNey99,GerGiuBru07}.
+with  1 Gaussian  per state, as proposed in~\citep{WelKanNey99},   and  trained on  un-warped children's  and
+adults' speech~\citep{GerGiuBru07,GerGiuBru09}.
 
 The DNN-warp inputs are the MFCC with a 61 frames context window, DCT
-projected to a 208 dimensional features vector the procedure is similar as in \ref{sssection:exp:DNN}). The targets are the 25
+projected to a 208 dimensional features vector (the procedure is similar as in \ref{sssection:exp:DNN}). The targets are the 25
 warping factors. The  DNN has 4 hidden layers,  each of which contains
 500  elements such  that the  DNN  architecture can  be summarised  as
 follows: 208 x 500  x 500 x 500 x 500 x  25. The training procedure is
@@ -558,7 +571,7 @@ probabilities  obtained with  the  DNN-warp are concatenated with  the
 as input to  the DNN. The new DNN acoustic model  has 4 hidden layers,
 each of  which contains 1500  elements such that the  DNN architecture
 can then be summarized  as follows: 233 x 1500 x 1500  x 1500 x 1500 x
-3039 for phone recognition (233 x 1500 x 1500  x 1500 x 1500 x 5021 for word recognition).
+3039 for phone recognition and 233 x 1500 x 1500  x 1500 x 1500 x 5021 for word recognition.
 
 \subsection{Joint optimisation}\label{sssection:exp:joint}
 The DNN-warp and DNN-HMM can be fine-tuned jointly with back-propagation. In such case, the starting learning rate is set to 0.0002 in the first 4 hidden layers (corresponding to the DNN-warp) and to 0.0001 in the last 4 hidden layers (corresponding to the DNN-HMM). The learning rate is chosen empirically as the highest value for which both training accuracy and cross-validation accuracy improve. Setting a different learning rate in the first 4 hidden layers and the last 4 hidden layers is done in a attempt to overcome the vanishing gradient effect in the 8 layers DNN obtained from the concatenation of the DNN-warp and the DNN-HMM. The learning rates are then adapted following the same schedule as described above. The joint optimisation is done with a modified version of the TNet software package~\citep{vesely10}.
@@ -651,11 +664,12 @@ From results in Table~\ref{tab2} it  is also possible to note that the
 DNN-HMM system  adapted to children's  voices perform much  better for
 adult female speakers than for adult male speakers. On the other hand,
 the  DNN-HMM  system  adapted  to  female voices  perform  better  on
-children' speech than the system adapted to male voices. These results
+children' speech than the system adapted to male voices. These results are 
+consistent with results in Table~\ref{tab1} and 
 confirm that characteristics of  children's voice is much more similar
 to those of adult female voices than those of adult male voices.
 
-In the {\em Model selection} approach, we assumed that a perfect age/gender classifier exist which allows us to know in which target group of speaker an incoming speech segment belongs. The recognition is then performed using the corresponding adapted model. On the evaluation set including all the target groups of speakers (ChildIt + APASCI) {\em Model selection} improves the baseline by 23\% PER relative (from 14.32\% to 11.59\% with $p<.05$).
+In the {\em Model selection} approach, we assumed that a perfect age/gender classifier exist which allows us to know in which target group of speaker an incoming speech segment belongs. The recognition is then performed using the corresponding adapted model. On the evaluation set including all the target groups of speakers (ChildIt + APASCI) the use of matched acoustic models  improves the baseline by 23\% PER relative (from 14.32\% to 11.59\% with $p<.05$).
 
 \subsubsection{VTLN based approaches}
 Table~\ref{tab3}  presents the PER obtained with the DNN-HMM baseline, and the VTLN approaches: the VTLN applied to MFCC during training and testing (row {\em VTLN-normalisation}), the MFCC features vector augmented with the the warping factors obtained in a standard way (row {\em Warp + MFCC}), the MFCC features augmented with the posterior probabilities of the warping factors (row {\em Warp-post + MFCC}), the MFCC features augmented with the posterior probabilities of the warping factors averaged at utterance level (row {\em Warp-post (utt) + MFCC}) and the joint optimisation of the DNN-warp and the DNN-HMM (row {\em Warp-post + MFCC (joint)}). 
@@ -684,9 +698,9 @@ Warp-post + MFCC(joint)&\textbf{12\hpt52\%}&11\hpt23\%&8\hpt98\%&\textbf{11\hpt9
 
 On the evaluation set including all the target groups of speakers (ChildIt + APASCI) the VTLN normalisation approach improves the baseline performance by 19\% PER relative (from 14.32\% to 12.00\% PER with $p  <.001$). The system working with MFCC features augmented with warping factor improves the baseline by 6\% PER relative (from 14.32\% to 13.46\% PER with $p  <.001$). The system working with the MFCC features vector augmented with the posterior probabilities of the warping factors improves the baseline by 9\% relative (from 14.32\% to 13.12\% PER with $p  <.001$) and the system working with the MFCC features vector augmented with the posterior probabilities of the warping factors  averaged at utterance level improves the baseline by 15\% relative (from 14.32\% to 12.45\% PER with $p  <.001$). This latter system however, does not allow for joint optimisation as the averaging operation take place between the DNN-warp and the DNN-HMM. The system performing joint optimisation of the DNN-warp and the DNN-HMM improves the baseline by 19\% relative (from 14.32\% to 11.98\%). The performance difference between the best two system ({\em VTLN-normalisation} and {\em Warp-post + MFCC (joint)}) is not statistically significant.  
 
-VTLN normalisation allows to consistently obtain PER among the best for each group of speaker. The {\em Warp-post + MFCC (joint)} overall improvement is mainly due to the large improvement on the children evaluation set, 24\% relative (from 15.56\% to 12.52\% with $p  <.001$) whereas it mildly degrades performance on other groups of speakers. This is probably due to the fact that the training set is unbalanced towards children (7h15m in ChildIt against 2h40m for each adult group), therefore, performing the joint optimisation biases the system in favour of children speech.
+VTLN normalisation allows to consistently obtain PER among the best for each group of speaker. The {\em Warp-post + MFCC (joint)} overall improvement is mainly due to the large improvement on the children evaluation set, 24\% relative (from 15.56\% to 12.52\% with $p  <.001$) whereas it mildly degrades performance on other groups of speakers. This is probably due to the fact that the training set is unbalanced towards children (7h:15m in ChildIt against 2h:40m for each adult group), therefore, performing the joint optimisation biases the system in favour of children speech.
 
-Using directly warping factor obtained in a standard way consistently perform among the worst system and is outperformed by system using the MFCC augmented with the posterior probabilities of the warping factors. This seems to indicate that the ASR can benefit from the flexibility introduced by the posterior probabilities of the warping factors, in contrast with the hard decision is the standard warping factors estimation. To perform best however, these estimation have to be structure either by averaging at utterance level or by using joint-optimisation. Note that both of these constraints are not compatibles in the present framework.
+Using directly warping factors obtained in a standard way  (row {\em Warp + MFCC}), {\bf that is augmenting MFCC with a feature vector having a component in correspondance of  each possible warping factor with value 1 for the selected warping factor and 0 for all the other warping factors},  consistently performs among the worst system and is outperformed by the system using the MFCC augmented with the posterior probabilities of the warping factors. This seems to indicate that the ASR can benefit from the flexibility introduced by the posterior probabilities of the warping factors, in contrast with the hard decision is the standard warping factors estimation. To perform best however, these estimation have to be structure either by averaging at utterance level or by using joint-optimisation. Note that both of these constraints are not compatibles in the present framework.
 
 
 \subsubsection{Combination of approaches}
@@ -720,7 +734,7 @@ Warp-post + VTLN &  11\hpt34\% &  \textbf{9\hpt04\%}& 7\hpt32\%&10\hpt68\%\\
 
 On the evaluation set including all the target groups of speakers (ChildIt + APASCI) the combination of approaches outperform all the individual approaches presented until here. The combination {\em Warp-post + MFCC (model selection)} improves the baseline by 30\% relative (from 14.32\% PER to 10.98\% PER with $p  <.001$). {\em VTLN (model selection)} improves the baseline by 35\% relative (from 14.32\% PER to 10.61\% PER with $p  <.001$). The combination of the three approaches presented in this paper ({\em Warp-post + VTLN (model selection)}) improves the baseline by 34\% relative (from 14.32\% PER to 10.68\% PER with $p  <.001$). The difference between {\em VTLN (model selection)} and {\em Warp-post + VTLN (model selection)} is not statistically significant. When compared to the best system until now ({\em Model selection}), system combination improves from 5\% relative ({\em Warp-post + MFCC (model selection)} with $p  <.001$) to 9\% relative ({\em VTLN (model selection)} with $p  <.001$).
 
-Approach  combination allows to consistently improve the PER on every groups of speakers. On the ChildIt corpus, the best performance are obtained with the system based on VTLN normalised features ({\em VTLN (model selection)} and {\em Warp-post + VTLN (model selection)}) which improve by up to 38\% PER relative compared to the baseline ($p  <.001$) and 10\% PER relative ($p  <.001$) compared to the best system until now ({\em Model selection}). On the adult corpora the difference between the performances of the three system combinations is not statistically significant. On female speakers, system combination allow to improves the baseline by up to 21\% PER relative ($p  <.001$) and improves the performance of the best system to date ({\em Model selection}) by up to 7\% relative ($p  <.01$). On male speakers, system combination allow to improves the baseline by up to 20\% PER relative ($p  <.001$) and improves the performance of the best system to date ({\em Model selection}) by up to 5\% relative ($p  <.05$). The combination {\em Warp-post + MFCC (model selection)} represents the best single-pass system presented here.
+Approach  combination allows to consistently improve the PER on every groups of speakers. On the ChildIt corpus, the best performance are obtained with the system based on VTLN normalised features ({\em VTLN (model selection)} and {\em Warp-post + VTLN (model selection)}) which improve by up to 38\% PER relative compared to the baseline ($p  <.001$) and 10\% PER relative ($p  <.001$) compared to the best system until now ({\em Model selection}). On the adult corpora the difference between the performances of the three system combinations is not statistically significant. On female speakers, system combination allow to improves the baseline by up to 21\% PER relative ($p  <.001$) and improves the performance of the best system to date ({\em Model selection}) by up to 7\% relative ($p  <.01$). On male speakers, system combination allow to improves the baseline by up to 20\% PER relative ($p  <.001$) and improves the performance of the best system to date ({\em Model selection}) by up to 5\% relative ($p  <.05$). The combination {\em Warp-post + MFCC (model selection)} represents the best single-pass decoding system presented here.
 
 
 \subsection{Word recognition}
@@ -746,11 +760,11 @@ ChildIt + general model&\textbf{ 10\hpt89\%} & 10\hpt61\%&11\hpt02\%&11\hpt00\%\
 \caption{Word error rate achieved with the DNN-HMM trained on a mixture of adult and children's speech and adapted to specific age/gender groups.\label{tab5}}
 \end{table}
 
-On the evaluation set including all the target groups of speakers (ChildIt + IBNC) the age-gender adaptation improves the performance of the baseline by 10\% WER relative (from 11.98\% to 10.93\% with $p<.001$). When targeting children speakers, the age-gender adaptation improves the performance of the baseline by 18\% relative (from 12.83\% to 10.89\% with $p<.001$). On the other hand, when targeting adult speakers, the age-gender adaptation does not significantly improve the WER compared to the baseline. This is due to the fact that the adult corpus is now considerably larger than for experiment on PER ($52h:00m$ for IBN against $5h:19m$ for APASCI). This allows to achieve an effective training on the adult groups with the general corpus and benefits from age-gender adaptation are limited. Therefore for simplicity's sake, in the remainder of the paper, the approach (row {\em ChildIt + general model}) is considered instead of age-gender adaptation for all groups of speakers ({\em Model selection}). Performance difference between {\em Model selection} and {\em ChildIt + general model} is not statistically significant.
+On the evaluation set including all the target groups of speakers (ChildIt + IBN) the age-gender adaptation improves the performance of the baseline by 10\% WER relative (from 11.98\% to 10.93\% with $p<.001$). When targeting children speakers, the age adaptation improves the performance of the baseline by 18\% relative (from 12.83\% to 10.89\% with $p<.001$). On the other hand, when targeting adult speakers, the age-gender adaptation does not significantly improve the WER compared to the baseline. This is due to the fact that the adult corpus is now considerably larger than for experiment on PER ($52h:00m$ for IBN against $5h:19m$ for APASCI). This allows to achieve an effective training on the adult groups with the general corpus and benefits from age-gender adaptation are limited. Therefore for simplicity's sake, in the remainder of the paper, the approach (row {\em ChildIt + general model}) is considered instead of age-gender adaptation for all groups of speakers ({\em Model selection}). Performance difference between {\em Model selection} and {\em ChildIt + general model} is not statistically significant.
 \subsubsection{VTLN based approaches and system combination}
-Table~\ref{tab6} presents the WER performance for a) the VTLN based approaches: the VTLN applied to MFCC during training and testing (row {\em VTLN-normalisation}), the MFCC features augmented with the posterior probabilities of the warping factors (row {\em Warp-post + MFCC}) and the joint optimisation of the DNN-warp and the DNN-HMM (row {\em Warp-post + MFCC (joint)}); b) system combination: VTLN-normalised features vector augmented with the posterior probabilities of the warping factors and joint optimisation (row {\em Warp-post + VTLN (joint)}), age/gender adaptation for children speaker performed on a system working with the MFCC features vector augmented with the posterior probabilities of the warping factors with joint optimisation (row {\em Warp-post + MFCC (joint/ChildIt + general model)}) and on a system trained on VTLN-normalised features vector augmented with the posterior probabilities of the warping factors with joint optimisation (row {\em Warp-post + VTLN (joint/ChildIt + general model)}). These approaches are compared to the baseline and to {\em ChildIt + general model}. 
+Table~\ref{tab6} presents the WER performance for a) the VTLN based approaches: the VTLN applied to MFCC during training and testing (row {\em VTLN-normalisation}), the MFCC features augmented with the posterior probabilities of the warping factors (row {\em Warp-post + MFCC}) and the joint optimisation of the DNN-warp and the DNN-HMM (row {\em Warp-post + MFCC (joint)}); b) system combination: VTLN-normalised features vector augmented with the posterior probabilities of the warping factors and joint optimisation (row {\em Warp-post + VTLN (joint)}), age adaptation for children speaker performed on a system working with the MFCC features vector augmented with the posterior probabilities of the warping factors with joint optimisation (row {\em Warp-post + MFCC (joint/ChildIt + general model)}) and on a system trained on VTLN-normalised features vector augmented with the posterior probabilities of the warping factors with joint optimisation (row {\em Warp-post + VTLN (joint/ChildIt + general model)}). These approaches are compared to the baseline and to {\em ChildIt + general model}. 
 
-The approach combining VTLN-normalised features and posterior probabilities aims at testing the complementary between VTLN-normalisation that operates at utterances level and posterior probabilities that are obtained at frame level. While estimating VTLN factors on a longer time unit (utterance) should allow for a more accurate average estimation, the "true" warping factor might be fluctuating in time \textbf{\textcolor{red}{[ref]}}. Combining VTLN normalisation at utterance level and posterior probabilities estimated at frame level should help overcoming this problem.
+The approach combining VTLN-normalised features and posterior probabilities aims at testing the complementary between VTLN-normalisation that operates at utterances level and posterior probabilities that are obtained at frame level. While estimating VTLN factors on a longer time unit (utterance) should allow for a more accurate average estimation, the "true" warping factor might be fluctuating over time~\textbf{Miguel2005,MaragakisP08}. Combining VTLN normalisation at utterance level and posterior probabilities estimated at frame level should help overcoming this problem.
 
 \begin{table}
  \begin{minipage}{\textwidth}
@@ -774,7 +788,7 @@ Warp-post - VTLN &  11\hpt07\% &  \textbf{10\hpt49\%}&  11\hpt07\%&10\hpt96\%\\
  \caption{Word error rate achieved with several VTLN approaches to DNN-HMM.\label{tab6}}
 \end{table}
 
-On the evaluation set including all the target groups of speakers (ChildIt + IBNC) the VTLN based approaches ({\em Warp-post + MFCC} and {\em VTLN-normalisation}) perform similarly (11.57\% WER and 11.58\%, respectively). They improve the performance baseline by 3.5\%  WER relative ($p<.001$) but both the methods are outperformed are outperformed by {\em ChildIt + general model} by 5\% WER relative ($p<.001$). This tends to confirm on children corpus where {\em Warp-post + MFCC} and {\em VTLN-normalisation} improve the baseline performance by 6\% WER relative (from 12.83\% to 12.21\% with $p<.001$) and 5\% WER relative (from 12.83\% to 12.11\% with $p<.001$), respectively. Both the approaches are still outperformed on the children corpus by {\em ChildIt + general model} ($p<.001$). Performance difference between the VTLN based approaches, the baseline and {\em ChildIt + general model} on adult corpora are in general not statistically significant.
+On the evaluation set including all the target groups of speakers (ChildIt + IBN) the VTLN based approaches ({\em Warp-post + MFCC} and {\em VTLN-normalisation}) perform similarly (11.57\% WER and 11.58\%, respectively). They improve the performance baseline by 3.5\%  WER relative ($p<.001$) but both the methods are outperformed by {\em ChildIt + general model} by 5\% WER relative ($p<.001$). This tends to confirm on children corpus where {\em Warp-post + MFCC} and {\em VTLN-normalisation} improve the baseline performance by 6\% WER relative (from 12.83\% to 12.11\% with $p<.001$) and 5\% WER relative (from 12.83\% to 12.21\% with $p<.001$), respectively. Both the approaches are still outperformed on the children corpus by {\em ChildIt + general model} ($p<.001$). Performance difference between the VTLN based approaches, the baseline and {\em ChildIt + general model} on adult corpora are in general not statistically significant.
 
 During these experiment, the corpus was unbalanced towards adults ($52h:00m$ for IBN against $7h:15m$ for ChildIt). Joint optimisation is performed on a balanced training set in order to avoid introducing a bias in favour of the adults corpora. The balanced corpus is composed of 7h of adult female and 7h of adult male speech randomly selected from the IBN corpus. On the evaluation set composed of all target groups, joint optimisation improves the {\em Warp-post + MFCC} performance by 2\% WER relative (from 11.57\% to 11.33\% with $p<.001$). The performance improvement in each speakers group is not statistically significant.
 
