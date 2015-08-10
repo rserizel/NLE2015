@@ -48,12 +48,13 @@ The sentence has been modified into:
 
 The posteriors probabilities are now explained p10 (see also comment 8). "Posterior probabilities of the warping factor" has been replaced everywhere by "Posterior probabilities of the warping factors" to avoid confusion.
 
-\textbf{12. Page 13, 4.1.1 given that VTLN is likely to be most effective for younger children, it would be informative to see the distribution of ages in the ChildIt corpus.}
+\paragraph{12. Page 13, 4.1.1 given that VTLN is likely to be most effective for younger children, it would be informative to see the distribution of ages in the ChildIt corpus.}
 
 ~
 
 A table reporting the age distribution has been added in Section 4.1.1 (see Table \ref{ChildItAge}).
 
+\centering
 \begin{table}
   \begin{minipage}{\textwidth}
 \begin{tabular}{cccccccc}
@@ -87,13 +88,17 @@ between words was allowed.}
 
 \paragraph{15. Page 15, 4.2.2. Please explain a little more about how the Hamming window is applied to the sequence of feature vectors. Is this normal in DNN training?}
 
+~
+
+See comment 16.
+
 \paragraph{16. Page 15, 1 line later, what was the rationale for choosing DCT (on the previous page you applied HLDA)}
 
 ~
 
 It is common to reduce the dimensionality of the input vector in DNN. DCT is probably not the most common choice (PCA and HLDA are commonly used) but it offers the advantage to be rather simple and requires little computational resources (as opposed to HLDA for example). Hamming windowing is applied to each frequency band (31-dimensional context in each band) before the DCT compression. This is a rather standard procedure. The processing description in the paper was not accurate, this has been corrected. Paragraph 4.2.2 has been corrected to:
 
-\textit{The DNN  uses again  13 MFCC, including  the zero  order coefficient, computed on 20ms  frames with 10ms overlap. The context spans on a 31 frames  window. For each frequency band, the 31 coefficients context is separately scale with Hamming and projected to a 16 dimensional vector using DCT. The 13 resulting vectors are concatenated to obtain a 208 dimensional feature  vector which is normalised to have zero-mean and unit variance before being used as input to the DNN. [\dots]}
+\textit{The DNN  uses again  13 MFCC, including  the zero  order coefficient, computed on 20ms  frames with 10ms overlap. The context spans on a 31 frames  window. For each frequency band, the 31 coefficients context is separately scaled with Hamming and projected to a 16 dimensional vector using DCT. The 13 resulting vectors are concatenated to obtain a 208 dimensional feature  vector which is normalised to have zero-mean and unit variance before being used as input to the DNN. [\dots]}
 
 Paragraph 4.5 has been modified to:
 
@@ -103,7 +108,7 @@ Paragraph 4.5 has been modified to:
 
 ~
 
-These are rather standard parameters when using DNN for acoustic modelling in automatic speech recognition: context is usually between 9 frames and 40 frames, hidden layers size between 1000 and 2000 elements and the DNN usually have 3 to 8 hidden layers. We simply adjust these values to our specific corpus. For example the corpus is rather small therefore we have only 4 hidden layers to prevent over-fitting The performance are sensitive to these parameters but they will not be affected drastically by minor changes on the hyper-parameters value. This is now mentioned at the end of the 2nd paragraph in 4.2.2:
+These are rather standard parameters when using DNN for acoustic modelling in automatic speech recognition: context is usually between 9 frames and 40 frames, hidden layers size between 1000 and 2000 elements and the DNN usually have 3 to 8 hidden layers. We simply adjusted these values to our specific corpus. For example the corpus is rather small therefore we have only 4 hidden layers to prevent over-fitting The performance are sensitive to these parameters but they will not be affected drastically by minor changes on the hyper-parameters value. This is now mentioned at the end of the 2nd paragraph in 4.2.2:
 
 \textit{The values of the hyper-parameters (network topology and learning parameters) are standard values, in the range of the values commonly used for these parameters in the literature.} 
 
@@ -213,7 +218,7 @@ The paragraph has been modified into:
 \textit{[\dots] The new DNN acoustic model  has 4 hidden layers,
 each of  which contains 1500  elements such that the  DNN architecture
 can then be summarized  as follows: 233 x 1500 x 1500  x 1500 x 1500 x
-3039 for phone recognition (233 x 1500 x 1500  x 1500 x 1500 x 5021 for word recognition).}
+3039 for phone recognition and 233 x 1500 x 1500  x 1500 x 1500 x 5021 for word recognition.}
 
 \paragraph{25. Page 18. Where does the learning rate of 0.0002 come from?}
 
@@ -227,26 +232,24 @@ The learning rate was chosen empirically. For higher learning rates, the trainin
 
 ~
 
-This comment is partially answered in comment 29. The solution you propose for model selection seems indeed interesting. Yet, our goal in this paper was to experiment on features and acoustic modelling with DNN and we voluntarily decided to limit the scope of the paper on these particular points for clarity. The approach you mention involves a full decoding system and is therefore beyond the scope of this paper. This is now clearly stated in the abstract:
+This comment is partially answered in comment 29. The solution you propose for model selection seems indeed interesting. Yet, our goal in this paper was to experiment on features and acoustic modelling with DNN and we voluntarily decided to limit the scope of the paper on these particular points for clarity. The approach you mention involves a full decoding system and is therefore beyond the scope of this paper. In the introduction:
 
-\textit{For clarity sake, the scope of this paper is voluntarily limited to approaches based only on acoustic modelling and features transform based on VTLN.}
+%This is now clearly stated in the abstract:
+%
+%\textit{For clarity sake, the scope of this paper is voluntarily limited to approaches based only on acoustic modelling and features transform based on VTLN.}
 
-~
-
-In the introduction:
-
-\textit{This paper is a proof of concept and the authors voluntarily limited its focus to simple ASR systems. Only  age and gender groups problems and approaches based only on acoustic modeling and VTLN transform are considered here in order to focus on the effects of these particular approaches. Therefore state-of-the-art approaches based on speaker identity models such as I-vectors (Dehak, Kenny, Dehak, Dumouchel, and Ouellet, 2011; Saon, Soltau, Nahamoo, and Picheny, 2013; Senior and Lopez-Moreno, 2014), speaker codes (Abdel-Hamid and Jiang, 2013a), linear input networks and linear output networks (Li and Sim, 2010) are beyond the scope of this paper. At this initial stage, the authors decided to focus on approaches based only on acoustic modelling therefore excluding approaches requiring an entire decoding stream (or at least a language model), such as approaches based on confusion networks (Mangu, Brill, and Stolcke, 2000).}
+\textit{This paper is a proof of concept and the authors voluntarily limited its focus to simple ASR systems. Only  age and gender groups problems and approaches based only on acoustic modeling and VTLN transform are considered here in order to focus on the effects of these particular approaches. Therefore state-of-the-art approaches based on speaker identity models such as I-vectors (Dehak, Kenny, Dehak, Dumouchel, and Ouellet, 2011; Saon, Soltau, Nahamoo, and Picheny, 2013; Senior and Lopez-Moreno, 2014), speaker codes (Abdel-Hamid and Jiang, 2013a), linear input networks and linear output networks (Li and Sim, 2010) are beyond the scope of this paper.} % At this initial stage, the authors decided to focus on approaches based only on acoustic modelling therefore excluding approaches requiring an entire decoding stream (or at least a language model), such as approaches based on confusion networks (Mangu, Brill, and Stolcke, 2000).}
 
 ~
 
 And in the conclusion:
 
-\textit{This paper voluntarily focused on age and gender groups problems and on approaches based only on acoustic modeling and VTLN based transform in order to focus on the effects of these particular approaches. Extension of this work could consider approaches based on speaker identity models such as I-vectors, speaker codes, linear input networks and linear output networks and approaches, such as system combination based on confusion networks, that require an entire decoding stream (or at least a language model).}
+\textit{This paper voluntarily focused on age and gender groups problems and on approaches based only on acoustic modeling and VTLN based transform in order to focus on the effects of these particular approaches. Extension of this work could consider approaches based on speaker identity models such as I-vectors, speaker codes, linear input networks and linear output networks.} % and approaches, such as system combination based on confusion networks, that require an entire decoding stream (or at least a language model).}
 \paragraph{27. Page 22. In the earlier overview of the systems, did you include the case of MFCC feature vectors augmented with VTLN warping factors obtained in the normal way?}
 
 ~
 
-We did try to augment the MFCC with the warping factors obtained in the standard way (in this case there is only one scalar factor per utterance) the results of these experiments are reported in Table 5 row {\em Warp + MFCC}.
+We did try to augment the MFCC with the warping factors obtained in the standard way the results of these experiments are reported in Table 5 row {\em Warp + MFCC}.
 
 \paragraph{28. Page 22. Exactly how are the posterior probabilities averaged to utterance level, and why is this done?}
 
@@ -272,9 +275,11 @@ See previous comment.
 
 ~
 
-VTLN-normalisation operates at utterances level whereas posterior probabilities are obtained at frame level. While estimating VTLN factors on a longer time unit (utterance) should allow for a more accurate average estimation, the "true" warping factor might be fluctuating in time \textbf{\textcolor{red}{[ref]}}. We believe that combining VTLN normalisation at utterance level and posterior probabilities estimated at frame level should help overcoming this problem. According to results, this seems to be true. A second paragraph stating this has been added in 5.2.2:
+VTLN-normalisation operates at utterances level whereas posterior probabilities are obtained at frame level. While estimating VTLN factors on a longer time unit (utterance) should allow for a more accurate average estimation, the "true" warping factor might be fluctuating in time (Miguel, Lieida, Rose, Buera, and Ortega, 2005; Maragakis and Potamianos,
+2008). We believe that combining VTLN normalisation at utterance level and posterior probabilities estimated at frame level should help overcoming this problem. According to results, this seems to be true. A second paragraph stating this has been added in 5.2.2:
 
-\textit{The approach combining VTLN-normalised features and posterior probabilities aims at testing the complementary between VTLN-normalisation that operates at utterances level and posterior probabilities that are obtained at frame level. While estimating VTLN factors on a longer time unit (utterance) should allow for a more accurate average estimation, the "true" warping factor might be fluctuating in time \textbf{\textcolor{red}{[ref]}}. Combining VTLN normalisation at utterance level and posterior probabilities estimated at frame level should help overcoming this problem.}
+\textit{The approach combining VTLN-normalised features and posterior probabilities aims at testing the complementary between VTLN-normalisation that operates at utterances level and posterior probabilities that are obtained at frame level. While estimating VTLN factors on a longer time unit (utterance) should allow for a more accurate average estimation, the "true" warping factor might be fluctuating in time (Miguel, Lieida, Rose, Buera, and Ortega, 2005; Maragakis and Potamianos,
+2008). Combining VTLN normalisation at utterance level and posterior probabilities estimated at frame level should help overcoming this problem.}
 
 
 \section{Reviewer 2}
@@ -317,7 +322,7 @@ in which only little data is presented for decoding.
 
 ~
 
-I-vectors and speaker codes as additional input should probably perform better than the approaches presented here (and especially speaker codes). Yet, they require speaker annotations which is out of the scope of the paper. For clarity sake, we decided to focus in a first stage on the age and gender groups problem which requires only annotations about the age class (adult or children) and the gender class (male or female). These annotations are far more simple than speaker annotations required by the aforementioned approaches. However, in the future it would indeed be interesting to compare the approaches presented here and speaker based approaches. All this is clarified in introduction and conclusion (see also comment 26 from reviewer 1).
+I-vectors and speaker codes as additional input should probably perform better than the approaches presented here (and especially speaker codes). Yet, they require speaker annotations which is out of the scope of the paper. For clarity sake, we decided to focus in a first stage on the age and gender groups problem which requires only annotations about the age class (adult or children) and the gender class (male or female). These annotations are far more simple than speaker annotations required by the aforementioned approaches. However, in the future it would indeed be interesting to compare the approaches presented here and speaker based approaches. All this is clarified in introduction and conclusion (see also the answer to comment 26 from reviewer 1).
 
 Regarding speaker adapted features such as fMLLR, they are widely used as input to DNN in many ASR tools available. However, at this stage the target of this paper is to compare VTLN to approaches based only on DNN (that could be inspired by VTLN) not to compare several features normalisation approaching which has already been done. Yet, we agree that in later stage it would be interesting to compare results obtained with our best approach to a wider range of normalisation or adaptation techniques.
 
@@ -325,9 +330,11 @@ Regarding speaker adapted features such as fMLLR, they are widely used as input 
 
 ~
 
-The paragraph about system combination has been modified into:
+We are not really doing system combination in the classical sense. What we do is combining the different approaches we have introduced in a single system. Therefore, standard systems combination approaches such as those based on confusion networks are out of the scope of this paper. To avoid the confusion we replaced any reference to "systems combination" by "combination of different approaches". We also modified the paragraph about the combination of different approaches as follows:
 
-\textit{System combination is a common way to improve systems performance and robustness. It is decided here to combine the different approaches introduced until here to exploit their potential complementarity. In ASR, systems are generally combined using confusion networks or using late fusion at transcription level. The solution chosen here is to either combine the different systems at features level (standard VTLN normalised features and the posterior probabilities of the warping factors are combined at the input of the DNN) or at the acoustic model level (acoustic features augmented with the posterior probabilities of the warping factors are used as input to a DNN with age-gender adaptation). A reason to this choice is that this way, the experiments are focused at acoustic model level and remain independent from any change in the later stage of the decoder or in the language model.}
+\textit{Combining several approaches is a common way to improve systems performance and robustness. It is decided here to combine the different approaches introduced until here to exploit their potential complementarity. In ASR, systems are generally combined using confusion networks or using late fusion at transcription level. The solution chosen here is different. It was chosen to either combine the different approaches at features level (standard VTLN normalised features and the posterior probabilities of the warping factors are combined at the input of the DNN) or at the acoustic model level (acoustic features augmented with the posterior probabilities of the warping factors are used as input to a DNN with age-gender adaptation). A reason to this choice is that this way, the experiments are focused at acoustic model level and remain independent from any change in the later stage of the decoder or in the language model.}
+
+
 
 \section{Reviewer 3}
 
@@ -343,7 +350,7 @@ This has been corrected
 
 Sequence trained systems have indeed proved really efficient during the past years. However, as explained above (see also comment 26 from reviewer 1 and comment 2 from reviewer 2) we decided to keep the system in its most simple form in order to emphasis the impact of the approaches that are proposed. This paper should been see as a proof of concept and we believe it is better to keep the core system simple to deliver a clear message. 
 
-Yet, we totally agree with you on the fact that in a more advance stage the system should include some kind of sequence training and an analysis of its effects on different age and gender groups. But once again this is not in the scope of this paper.
+Yet, we totally agree with you on the fact that in a more advanced stage the system should include some kind of sequence training and an analysis of its effects on different age and gender groups. But once again this is not in the scope of this paper.
 \paragraph{II. In the under-resourced conditions, the authors should also investigate more adaptation techniques, e.g., regularization, LIN., LON., etc. to see if they perform better. I would like to see more experimental results on more DNN based adaptation approaches.}
 
 ~

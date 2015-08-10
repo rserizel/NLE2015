@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.12.15)  31 JUL 2015 07:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.12.15)  10 AUG 2015 09:04
 entering extended mode
 **NLE2015_answer.tex
 (C:\Users\serizel\Documents\GitHub\NLE2015\NLE2015_answer.tex
@@ -69,21 +69,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1
 
 ] [2] [3]
-[4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 186.
+[4] [5]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 191.
 
  (C:\MiKTeX\tex\latex\base\omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 186.
- [5]
-Overfull \hbox (11.85222pt too wide) in paragraph at lines 224--225
-[][]\OT1/cmr/m/it/10 The DNN-warp and DNN-HMM can be fine-tuned jointly with ba
-ck-propagation.
- []
-
-[6] [7] [8] [9]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 191.
+ [6] [7] [8] [9]
 Missing character: There is no ‚ in font cmbx10!
 Missing character: There is no Ä in font cmbx10!
 Missing character: There is no ú in font cmbx10!
@@ -101,10 +95,10 @@ Missing character: There is no ù in font cmbx10!
 Here is how much of TeX's memory you used:
  539 strings out of 493922
  7071 string characters out of 3154516
- 55297 words of memory out of 3000000
+ 56297 words of memory out of 3000000
  3890 multiletter control sequences out of 15000+200000
  8293 words of font info for 29 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 25i,11n,19p,980b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 25i,11n,19p,983b,243s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on NLE2015_answer.dvi (11 pages, 47872 bytes).
+Output written on NLE2015_answer.dvi (11 pages, 45952 bytes).

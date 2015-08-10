@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.12.15)  31 JUL 2015 07:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.12.15)  10 AUG 2015 10:48
 entering extended mode
 **NLE2015_R1.tex
 (C:\Users\serizel\Documents\GitHub\NLE2015\NLE2015_R1.tex
@@ -438,70 +438,52 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 75.
  [1
 
-] [2] [3]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
-[5] [6]
+] [2] [3] [4] [5] [6]
 File: fig1.eps Graphic file (type eps)
- <fig1.eps> [7]
+ <fig1.eps>
 File: fig2.eps Graphic file (type eps)
- <fig2.eps> [8]
-File: fig3.eps Graphic file (type eps)
- <fig3.eps> [9]
-Underfull \vbox (badness 2626) has occurred while \output is active []
 
- [10]
-[11] [12] [13] [14] [15]
-Overfull \hbox (4.27824pt too wide) in alignment at lines 668--680
+<fig2.eps> [7]
+File: fig3.eps Graphic file (type eps)
+ <fig3.eps> [8] [9] [10] [11] [12]
+Underfull \vbox (badness 5652) has occurred while \output is active []
+
+ [13]
+[14] [15]
+Overfull \hbox (4.27824pt too wide) in alignment at lines 682--694
  [] [] [] [] [] [][][][]
  []
 
-[16] [17]
-Underfull \vbox (badness 2486) has occurred while \output is active []
-
- [18]
-[19] [20]
-Overfull \hbox (9.58336pt too wide) in alignment at lines 757--772
+[16] [17] [18] [19] [20]
+Overfull \hbox (9.58336pt too wide) in alignment at lines 771--786
  [] [] [] [] [] [][][][]
  []
 
 [21] [22] (C:\Users\serizel\Documents\GitHub\NLE2015\NLE2015_R1.bbl [23]
-[24]
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 193.
+[24] [25]
+! Missing } inserted.
+<inserted text> 
+                }
+l.374 \end{thebibliography}
+                           
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-Underfull \hbox (badness 4832) in paragraph at lines 192--201
-[][]\OT1/cmr/m/n/10 Nagendra Ku-mar and An-dreas G. An-dreou.  Het-eroscedas-ti
-c dis-crim-i-
- []
+) [26] (C:\Users\serizel\Documents\GitHub\NLE2015\NLE2015_R1.aux)
 
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Underfull \hbox (badness 3612) in paragraph at lines 192--201
-\OT1/cmr/m/n/10 nant anal-y-sis and re-duced rank \OMS/cmsy/m/n/10 f\OT1/cmr/m/
-n/10 HMMs\OMS/cmsy/m/n/10 g \OT1/cmr/m/n/10 for im-proved speech recog-
- []
-
-
-Underfull \hbox (badness 2922) in paragraph at lines 192--201
-\OT1/cmr/m/n/10 ni-tion.  \OT1/cmr/m/it/10 Speech Com-mu-ni-ca-tion\OT1/cmr/m/n
-/10 , 26(4):283 -- 297, 1998.  ISSN 0167-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 192--201
-\OT1/cmr/m/n/10 6393.  doi: http://dx.doi.org/10.1016/S0167-6393(98)00061-2.  U
-RL
- []
-
-[25] [26]) [27] (C:\Users\serizel\Documents\GitHub\NLE2015\NLE2015_R1.aux) ) 
+ ) 
 Here is how much of TeX's memory you used:
  2498 strings out of 493922
- 30630 string characters out of 3154516
- 92000 words of memory out of 3000000
- 5774 multiletter control sequences out of 15000+200000
- 11258 words of font info for 40 fonts, out of 3000000 for 9000
+ 30666 string characters out of 3154516
+ 92134 words of memory out of 3000000
+ 5775 multiletter control sequences out of 15000+200000
+ 11090 words of font info for 39 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 30i,15n,24p,1273b,330s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 30i,15n,24p,1273b,340s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on NLE2015_R1.dvi (27 pages, 120352 bytes).
+Output written on NLE2015_R1.dvi (26 pages, 119216 bytes).
