@@ -238,13 +238,16 @@ This comment is partially answered in comment 29. The solution you propose for m
 %
 %\textit{For clarity sake, the scope of this paper is voluntarily limited to approaches based only on acoustic modelling and features transform based on VTLN.}
 
-\textit{This paper is a proof of concept and the authors voluntarily limited its focus to simple ASR systems. Only  age and gender groups problems and approaches based only on acoustic modeling and VTLN transform are considered here in order to focus on the effects of these particular approaches. Therefore state-of-the-art approaches based on speaker identity models such as I-vectors (Dehak, Kenny, Dehak, Dumouchel, and Ouellet, 2011; Saon, Soltau, Nahamoo, and Picheny, 2013; Senior and Lopez-Moreno, 2014), speaker codes (Abdel-Hamid and Jiang, 2013a), linear input networks and linear output networks (Li and Sim, 2010) are beyond the scope of this paper.} % At this initial stage, the authors decided to focus on approaches based only on acoustic modelling therefore excluding approaches requiring an entire decoding stream (or at least a language model), such as approaches based on confusion networks (Mangu, Brill, and Stolcke, 2000).}
+\textit{This  paper is a  proof of  concept and  its scope  is limited  to the investigation  of  a simple acoustic  model  adaptation approach and several VTLN related  approaches.  To cope with inter-speaker acoustic variability induced by age and gender, state-of-the-art approaches based on speaker identity models such as I-vectors~(Dehak, Kenny, Dehak, Dumouchel, and Ouellet, 2011; Saon, Soltau, Nahamoo, and Picheny, 2013; Senior and Lopez-Moreno, 2014),  speaker codes~(Abdel-Hamid and Jiang, 2013a),  linear input networks  and  linear  output  networks~(Li and Sim, 2010) could be considered although they are beyond the scope of this paper.}
 
 ~
 
 And in the conclusion:
 
-\textit{This paper voluntarily focused on age and gender groups problems and on approaches based only on acoustic modeling and VTLN based transform in order to focus on the effects of these particular approaches. Extension of this work could consider approaches based on speaker identity models such as I-vectors, speaker codes, linear input networks and linear output networks.} % and approaches, such as system combination based on confusion networks, that require an entire decoding stream (or at least a language model).}
+\textit{Extensions   of  this   work  could   consider,  for   comparison  or
+combination  with  the  here  proposed  approaches,  state-of-the-art
+approaches based on speaker identity models such as I-vectors,  speaker codes,  linear input
+networks  and  linear  output  networks.}
 \paragraph{27. Page 22. In the earlier overview of the systems, did you include the case of MFCC feature vectors augmented with VTLN warping factors obtained in the normal way?}
 
 ~
@@ -332,7 +335,7 @@ Regarding speaker adapted features such as fMLLR, they are widely used as input 
 
 We are not really doing system combination in the classical sense. What we do is combining the different approaches we have introduced in a single system. Therefore, standard systems combination approaches such as those based on confusion networks are out of the scope of this paper. To avoid the confusion we replaced any reference to "systems combination" by "combination of different approaches". We also modified the paragraph about the combination of different approaches as follows:
 
-\textit{Combining several approaches is a common way to improve systems performance and robustness. It is decided here to combine the different approaches introduced until here to exploit their potential complementarity. In ASR, systems are generally combined using confusion networks or using late fusion at transcription level. The solution chosen here is different. It was chosen to either combine the different approaches at features level (standard VTLN normalised features and the posterior probabilities of the warping factors are combined at the input of the DNN) or at the acoustic model level (acoustic features augmented with the posterior probabilities of the warping factors are used as input to a DNN with age-gender adaptation). A reason to this choice is that this way, the experiments are focused at acoustic model level and remain independent from any change in the later stage of the decoder or in the language model.}
+\textit{Combining several approaches is a common way to improve systems performance and robustness. It is decided here to combine the different approaches introduced until here to exploit their potential complementarity. It was chosen to either combine the different approaches at features level (standard VTLN normalised features and the posterior probabilities of the warping factors are combined at the input of the DNN) or at the acoustic model level (acoustic features augmented with the posterior probabilities of the warping factors are used as input to a DNN with age-gender adaptation).}
 
 
 

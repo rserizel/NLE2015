@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.12.15)  10 AUG 2015 09:04
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2014.12.15)  12 AUG 2015 15:34
 entering extended mode
 **NLE2015_answer.tex
 (C:\Users\serizel\Documents\GitHub\NLE2015\NLE2015_answer.tex
@@ -95,10 +95,10 @@ Missing character: There is no ù in font cmbx10!
 Here is how much of TeX's memory you used:
  539 strings out of 493922
  7071 string characters out of 3154516
- 56297 words of memory out of 3000000
+ 55297 words of memory out of 3000000
  3890 multiletter control sequences out of 15000+200000
  8293 words of font info for 29 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 25i,11n,19p,983b,243s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 25i,11n,19p,878b,243s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on NLE2015_answer.dvi (11 pages, 45952 bytes).
+Output written on NLE2015_answer.dvi (11 pages, 45356 bytes).
