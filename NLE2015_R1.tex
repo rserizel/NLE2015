@@ -37,7 +37,6 @@
 
 
 
-
 \author[Romain Serizel and Diego Giuliani]{R\ls O\ls M\ls A\ls I\ls N\ns S\ls E\ls R\ls I\ls Z\ls E\ls L\\
 Institut Mines-Télécom/Télécom ParisTech, CNRS-LTCI\\
 37, rue Dareau, Paris, France 75014\\
@@ -62,7 +61,11 @@ This paper introduces deep neural network  (DNN) -  hidden  Markov model (HMM) b
 
 First, the recent approach that consists
 in adapting a general DNN to domain/language specific data is extended
-to target  age/gender groups  in the context  of DNN-HMM. Then, VTLN is investigated by training a DNN-HMM system by using either mel frequency cepstral coefficients (MFCC) normalised with standard VTLN or MFCC derived acoustic features combined with the posterior probabilities of the VTLN warping factors. In this later, novel, approach the posterior probabilities of the warping factors are obtained with a separate DNN and the decoding can be operated in a single pass when standard VTLN approach requires two decoding passes. Finally, the different approaches presented here are combined to take advantage of their complementarity. The combination of several approaches is shown to improve the baseline phone error rate performance by 30\% to 35\% relative and the baseline word error rate performance by about 10\% relative. For clarity sake, the scope of this paper is voluntarily limited to approaches based only on acoustic modelling and features transform based on VTLN.
+to target  age/gender groups  in the context  of DNN-HMM. Then, VTLN is investigated by training a DNN-HMM system by using either mel frequency cepstral coefficients (MFCC) normalised with standard VTLN or MFCC derived acoustic features combined with the posterior probabilities of the VTLN warping factors. In this later, novel, approach the posterior probabilities of the warping factors are obtained with a separate DNN and the decoding can be operated in a single pass when standard VTLN approach requires two decoding passes. Finally, the different approaches presented here are combined to take advantage of their complementarity. The combination of several approaches is shown to improve the baseline phone error rate performance by 30\% to 35\% relative and the baseline word error rate performance by about 10\% relative. 
+
+%
+% Diego revision: I would skip the following sentences.
+% For clarity sake, the scope of this paper is voluntarily limited to approaches based only on acoustic modelling and features transform based on VTLN.
 \end{abstract}
 
 \section{Introduction}
@@ -205,7 +208,21 @@ proposed here,  combination of the different  approaches is considered
 and performance of the different systems are evaluated not only on phone
 recognition but also on word recognition. 
 
-This paper is a proof of concept and the authors voluntarily limited its focus to simple ASR systems. Only  age and gender groups problems and approaches based only on acoustic modeling and VTLN transform are considered here in order to focus on the effects of these particular approaches. Therefore state-of-the-art approaches based on speaker identity models such as I-vectors~(\citealp*{dehak2011front,saon2013speaker}; \citealp{42536}), speaker codes~\citep*{abdel2013fast}, linear input networks and linear output networks~\citep*{li2010comparison} are beyond the scope of this paper. %At this initial stage, the authors decided to focus on approaches based only on acoustic modelling therefore excluding approaches requiring an entire decoding stream (or at least a language model), such as approaches based on confusion networks~\citep*{mangu2000finding}.
+%
+% Diego revision
+%
+This  paper is a  proof of  concept and  its scope  is limited  to the
+investigation  of  a simple acoustic  model  adaptation approach  and
+several VTLN related  approaches.  To cope with inter-speaker acoustic variability induced by 
+age and gender, state-of-the-art approaches
+based      on      speaker      identity      models      such      as
+I-vectors~(\citealp*{dehak2011front,saon2013speaker};
+\citealp{42536}),  speaker codes~\citep*{abdel2013fast},  linear input
+networks  and  linear  output  networks~\citep*{li2010comparison}  could be considered 
+although they are beyond the scope of this paper.
+
+% original: hard to read  
+%This paper is a proof of concept and the authors voluntarily limited its focus to simple ASR systems. Only  age and gender groups problems and approaches based only on acoustic modeling and VTLN transform are considered here in order to focus on the effects of these particular approaches. Therefore state-of-the-art approaches based on speaker identity models such as I-vectors~(\citealp*{dehak2011front,saon2013speaker}; \citealp{42536}), speaker codes~\citep*{abdel2013fast}, linear input networks and linear output networks~\citep*{li2010comparison} are beyond the scope of this paper. %At this initial stage, the authors decided to focus on approaches based only on acoustic modelling therefore excluding approaches requiring an entire decoding stream (or at least a language model), such as approaches based on confusion networks~\citep*{mangu2000finding}.
 
 The    rest    of    the    paper    is    organised    as    follows,
 Section~\ref{section:DNN}   briefly   introduces   DNN  for   acoustic
@@ -327,13 +344,6 @@ each  utterance in the  training set. Each acoustic feature vector in the uttera
 %
 % Answer: I removed the part above but kept the part below to explain how the system runs at decoding time
 %
-
-% Diego: I have commented the paragraph below
-%
-% At  decoding time,  the DNN-warp  is  used to  produced the  posterior probabilities of  the warping factors which are 
-% then concatenated with the acoustic  feature vector  (with context).  The  augmented features vector is used as input to % the warping-factor aware DNN acoustic model to produce  posterior probabilities of the  triphone tied-states. This 
-% procedure  has the  advantage  to reduce  considerably the  complexity during decoding compared 
-%to standard VTLN~\cite{LeeRos96}.
 
 
 During training  and testing  of the DNN-HMM  system, for  each speech
@@ -704,7 +714,15 @@ Using directly warping factors obtained in a standard way  (row {\em Warp + MFCC
 
 
 \subsubsection{Combination of approaches}
-Combining several approaches is a common way to improve systems performance and robustness. It is decided here to combine the different approaches introduced until here to exploit their potential complementarity. In ASR, systems are generally combined using confusion networks or using late fusion at transcription level. The solution chosen here is different. It was chosen to either combine the different approaches at features level (standard VTLN normalised features and the posterior probabilities of the warping factors are combined at the input of the DNN) or at the acoustic model level (acoustic features augmented with the posterior probabilities of the warping factors are used as input to a DNN with age-gender adaptation). A reason to this choice is that this way, the experiments are focused at acoustic model level and remain independent from any change in the later stage of the decoder or in the language model. 
+
+%
+% Diego revision
+%
+Combining several approaches is a common way to improve systems performance and robustness. It is decided here to combine the different approaches introduced until here to exploit their potential complementarity. 
+It was chosen to either combine the different approaches at features level (standard VTLN normalised features and the posterior probabilities of the warping factors are combined at the input of the DNN) or at the acoustic model level (acoustic features augmented with the posterior probabilities of the warping factors are used as input to a DNN with age-gender adaptation).
+
+% Original text: avoid comparing with 
+%Combining several approaches is a common way to improve systems performance and robustness. It is decided here to combine the different approaches introduced until here to exploit their potential complementarity. In ASR, systems are generally combined using confusion networks or using late fusion at transcription level. The solution chosen here is different. It was chosen to either combine the different approaches at features level (standard VTLN normalised features and the posterior probabilities of the warping factors are combined at the input of the DNN) or at the acoustic model level (acoustic features augmented with the posterior probabilities of the warping factors are used as input to a DNN with age-gender adaptation). A reason to this choice is that this way, the experiments are focused at acoustic model level and remain independent from any change in the later stage of the decoder or in the language model. 
 
 Table~\ref{tab4} presents the PER obtained with the DNN-HMM baseline, the age/gender adaptation approach in combination with model selection (row {\em Model selection}), VTLN approaches (rows {\em VTLN-normalisation} and {\em Warp-post + MFCC}) and combination of the aforementioned approaches: age/gender adaptation performed on a system trained with VTLN-normalised features (row {\em VTLN (model selection}), on a system working with the MFCC features vector augmented with the posterior probabilities of the warping factors (row {\em Warp-post + MFCC (model selection)}) and on a system trained on VTLN-normalised features vector augmented with the posterior probabilities of the warping factors (row {\em Warp-post + VTLN (model selection)}). Joint optimisation is not applied at this stage as the unbalanced training corpus results in biased training and the corpora used here are too small to truncate them to produce a balanced heterogeneous corpus. 
 
@@ -810,7 +828,19 @@ The different approaches presented here have been tested extensively in terms of
 
 Then, the best performing approaches have been validated in terms of WER on a more ``realistic'' set-up where the adult speech corpus (IBN) used for training is larger than the training children's speech corpus (ChildIt). DNN adaptation is then proved effective for the  under-resourced target group (children) but not significantly on target group with sufficient training data (adults). The trend observed on PER confirms and approaches based on VTLN have been shown to provide a significant improvement compared to the baseline (5\% to 6\% relative) but were still outperformed by the DNN adaptation approach (10\% relative improvement compared to the baseline). the combination of different approaches improves the baseline performance by up to 11\% WER relative. The two best performing systems introduced here ({\em ChildIt + general model} and {\em Warp-post + VTLN (joint)}) perform equally well but can have different applications. Indeed, {\em ChildIt + general model} is the most simple system but lacks flexibility  whereas the VTLN based system {\em Warp-post + VTLN (joint)} is more general but it requires a two-pass decoding.
 
-This paper voluntarily focused on age and gender groups problems and on approaches based only on acoustic modeling and VTLN based transform in order to focus on the effects of these particular approaches. Extension of this work could consider approaches based on speaker identity models such as I-vectors, speaker codes, linear input networks and linear output networks. % and approaches, such as system combination based on confusion networks, that require an entire decoding stream (or at least a language model).
+%
+% Diego revision
+%
+Extensions   of  this   work  could   consider,  for   comparison  or
+combination  with  the  here  proposed  approaches,  state-of-the-art
+approaches based on speaker identity models such as 
+I-vectors~(\citealp*{dehak2011front,saon2013speaker};
+\citealp{42536}),  speaker codes~\citep*{abdel2013fast},  linear input
+networks  and  linear  output  networks~\citep*{li2010comparison}.
+
+%Original text: we are in the conclusions  
+%This paper voluntarily focused on age and gender groups problems and on approaches based only on acoustic modeling and VTLN based transform in order to focus on the effects of these particular approaches. Extension of this work could consider approaches based on speaker identity models such as I-vectors, speaker codes, linear input networks and linear output networks. % and approaches, such as system combination based on confusion networks, that require an entire decoding stream (or at least a language model).
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
 %% Backmatter begins here                   %%
