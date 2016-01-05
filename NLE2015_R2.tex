@@ -2,6 +2,7 @@
 
 \usepackage{graphicx,epsfig,subfigure}
 \usepackage{multicol}
+\usepackage{multirow}
 %%% Load packages
 %\usepackage{amsthm}
 \usepackage{amsmath}
@@ -529,7 +530,7 @@ Gaussian densities.
 
 \subsubsection{DNN-HMM}\label{sssection:exp:DNNW}
 The DNN  are similar to those  used for phone  recognition except that
-they are  trained on a different  set of targets. The  targets of the
+they are  trained on  a different  set of targets. The  targets of the
 DNN are the 5021 tied-states obtained from the word recognition GMM-HMM training on the
 mixture of adults' and children's  speech (ChildIt + IBN). The DNN has
 4 hidden  layers, each of which  contains 1500 elements  such that the
@@ -646,12 +647,14 @@ baseline.  On children's  speech the PER improvement compared to the baseline is
 \begin{tabular}{lrrrrrrr}
 \hline\hline
      &\multicolumn{4}{ c }{Evaluation Set}\\ 
-Adaptation Set &ChildIt&APASCI(f)&APASCI(m)&ChildIt + APASCI\\\hline 
+\multirow{2}{*}{Adaptation Set} &\multirow{2}{*}{ChildIt}&\multirow{2}{*}{APASCI(f)}&\multirow{2}{*}{APASCI(m)}&ChildIt \\
+&&&&+ APASCI\\\hline 
 Baseline& 15\hpt56\% &  10\hpt91\%& 8\hpt62\%&14\hpt32\%\\\noalign{\vspace {.5cm}}
 ChildIt& \textbf{ 12\hpt43\%} &  16\hpt93\%&  24\hpt96\%&N/A\\\noalign{\vspace {.5cm}}
 APASCI(f)&  21\hpt91\% &  \textbf{9\hpt65\%}& 17\hpt01\%&N/A\\\noalign{\vspace {.5cm}}
 APASCI(m)&  32\hpt33\% &  16\hpt99\%&  \textbf{7\hpt61\%}&N/A\\\noalign{\vspace {.5cm}}
-Model selection&12\hpt43\%&9\hpt65\%&7\hpt61\%&11\hpt59\%\\
+Model selection (oracle)&12\hpt43\%&9\hpt65\%&7\hpt61\%&11\hpt59\%\\\noalign{\vspace {.5cm}}
+Model selection&12\hpt97\%&10\hpt98\%&8\hpt49\%&12\hpt26\%\\
 \hline\hline 
 \end{tabular}
 \end{minipage}
@@ -667,7 +670,10 @@ consistent with results in Table~\ref{tab1} and
 confirm that characteristics of  children's voice is much more similar
 to those of adult female voices than those of adult male voices.
 
-In the {\em Model selection} approach, we assumed that a perfect age/gender classifier exist which allows us to know in which target group of speaker an incoming speech segment belongs. The recognition is then performed using the corresponding adapted model. On the evaluation set including all the target groups of speakers (ChildIt + APASCI) the use of matched acoustic models  improves the baseline by 23\% PER relative (from 14.32\% to 11.59\% with $p<.05$).
+In the {\em Model selection (oracle)} approach, we assumed that a perfect age/gender classifier exist which allows us to know in which target group of speaker an incoming speech segment belongs. The recognition is then performed using the corresponding adapted model. On the evaluation set including all the target groups of speakers (ChildIt + APASCI) the use of matched acoustic models  improves the baseline by 23\% PER relative (from 14.32\% to 11.59\% with $p<.05$).
+
+For comparison purposes, last row of Table~\ref{tab2} ({\em Model selection}) reports results obtained with an automatic approach for acoustic model selection. In this case  each utterance is decoded three times by using each individual group adapted acoustic model and, as final recognition result, the recognition hypothesis resulting in the highest likelihood is retained. Comparing recognition results in the last two rows of Table~\ref{tab2} it is possible to note that  the automatic model selection approach results in an overall decrease of performance: from 11.59\% to 12.26\% PER. This decrease of performance is consistent across the three groups of speakers. It would probably be possible to obtain better model selection for exemple by training a DNN to perform the selection but the is out of the scope of this paper. Therefore, in the rest of the paper, {\em Model selection} approach is assumed to be the {\em Model selection (oracle)} approach and recognition experiments are always conducted with matching adapted acoustic models. 
+
 
 \subsubsection{VTLN based approaches}
 Table~\ref{tab3}  presents the PER obtained with the DNN-HMM baseline, and the VTLN approaches: the VTLN applied to MFCC during training and testing (row {\em VTLN-normalisation}), the MFCC feature vector augmented with the the warping factors obtained in a standard way (row {\em Warp + MFCC}), the MFCC features augmented with the posterior probabilities of the warping factors (row {\em Warp-post + MFCC}), the MFCC features augmented with the posterior probabilities of the warping factors averaged at utterance level (row {\em Warp-post (utt) + MFCC}) and the joint optimisation of the DNN-warp and the DNN-HMM (row {\em Warp-post + MFCC (joint)}). 
@@ -680,8 +686,8 @@ To compute the vectors {\em Warp-post (utt) + MFCC} the posterior probability of
 \begin{tabular}{lrrrrrrrr}
 \hline\hline
        &\multicolumn{4}{ c }{Evaluation Set}\\ 
-         &ChildIt&APASCI(f)&APASCI(m)&ChildIt\\
-         &&&& + APASCI\\\hline 
+         &\multirow{2}{*}{ChildIt}&\multirow{2}{*}{APASCI(f)}&\multirow{2}{*}{APASCI(m)}&ChildIt \\
+         &&&&+ APASCI\\\hline 
 Baseline&15\hpt56\% &  10\hpt91\%& 8\hpt62\%&14\hpt32\%\\\noalign{\vspace {.5cm}}
 VTLN-normalisation&  12\hpt80\% &  10\hpt41\%&  \textbf{7\hpt91\%}&12\hpt00\%\\\noalign{\vspace {.5cm}}
 Warp + MFCC&  14\hpt51\% &  10\hpt48\%& 9\hpt63\%&13\hpt46\%\\
@@ -719,8 +725,8 @@ Table~\ref{tab4} presents the PER obtained with the DNN-HMM baseline, the age/ge
 \begin{tabular}{lrrrrrrrr}
 \hline\hline
        &\multicolumn{4}{ c }{Evaluation Set}\\ 
-         &ChildIt&APASCI(f)&APASCI(m)&ChildIt \\
-         &&&&+ APASCI\\\hline
+          &\multirow{2}{*}{ChildIt}&\multirow{2}{*}{APASCI(f)}&\multirow{2}{*}{APASCI(m)}&ChildIt \\
+         &&&&+ APASCI\\\hline 
 Baseline&15\hpt56\% &  10\hpt91\%& 8\hpt62\%&14\hpt32\%\\\noalign{\vspace {.5cm}}
 Model selection&12\hpt43\%&9\hpt65\%&7\hpt61\%&11\hpt59\%\\\noalign{\vspace {.5cm}}
 Warp-post + MFCC&  14\hpt10\% &  10\hpt89\%& 8\hpt34\%&13\hpt12\%\\

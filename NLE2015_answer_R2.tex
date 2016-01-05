@@ -19,7 +19,7 @@ Systems trained without sequence training are still widely used as baseline syst
 
 ~
 
-LIN and LON (as I-vector and speaker codes) are speaker dependent transform which are out of focus here as we decided to focus on group of speakers and not on individuals speakers. As for regularization on the other, we could of course use dropout for regularization, early stopping, l1, l2 regularization and even elastic net all these are relevant and would probably improve performance but this is not the point of the paper. Indeed, for clarity sake, we decided to focus in a first stage on the age and gender groups problem which requires only annotations about the age class (adult or children) and the gender class (male or female). 
+LIN and LON (as I-vector and speaker codes) are speaker dependent transform which are out of focus here as we decided to focus on group of speakers and not on individuals speakers. As for regularization, we could of course use dropout for regularization, early stopping, l1, l2 regularization. All these are relevant and would probably improve performance but this is not the point of the paper. Indeed, for clarity sake, we decided to focus in a first stage on the age and gender groups problem which requires only annotations about the age class (adult or children) and the gender class (male or female). 
 
 \section{Reviewer 2}
 
@@ -42,6 +42,7 @@ The sentence has been modified into:
 \paragraph{P33: The second paragraph reads awkwardly. There are too many instances of "approach".}
 
 ~
+
 The paragraph has been modified into: 
 
 \textit{The different approaches presented here have been tested extensively in terms of PER on small corpora first. Systems based on VTLN have been shown to provide a significant improvement compared to the baseline (up to 19\% relative) but were still outperformed by the DNN adaptation (23\% relative improvement compared to the baseline). The combination of several techniques on the other hand effectively takes advantage of the complementarity of the different approaches introduced in this paper and improves the baseline performance by up to 35\% relative PER. Besides, the combination of several techniques is shown to consistently outperform each approach used separately.}
@@ -59,13 +60,14 @@ This has been corrected.
 
 ~
 
-\textcolor{red}{Diego could you please answer this one?}
+The purpose of the paper is to compare acoustic models and not to achieve the highest possible phone recognition performance. To this end, we think that the adoption of a phone loop LM, not making use of n-gram probabilities, is adequate. In general, when the purpose is to measure variations in phone recognition induced by changes in the acoustic model some authors prefer a simple phone-loop LM and others instead n-gram LMs. One reason for using a phone-loop LM is that of avoiding to depend on the quality of the LM.
 
 \paragraph{6. Page 23, 5.1.2. The model selection assumes there exists a perfect age/gender classifier, making it less practical to apply the model adaptation approach in reality. A simple automatic selection approach based on the highest recognition scores among each individual adapted system, as suggested by reviewer 1, could be applied. This should be able to do easily since the authors already decoded each utterance with all 3 models anyway, according to Table 4. Even though the classification might not be perfect, the results should be informative and more directly comparable to VTLN-based approaches which don't assume the age/gender group is known during test time. I think it fits well with the scope of this article and will give a more complete picture of the problem being studied.}
 
 ~
 
-\textcolor{red}{Diego, can we do this? Do we still have the decoding output?}
+We have updated Table 4 with the requested results and modified the related text accordingly:\\
+\textit{For comparison purposes, last row of Table~4 ({\em Model selection}) reports results obtained with an automatic approach for acoustic model selection. In this case  each utterance is decoded three times by using each individual group adapted acoustic model and, as final recognition result, the recognition hypothesis resulting in the highest likelihood is retained. Comparing recognition results in the last two rows of Table~4 it is possible to note that  the automatic model selection approach results in an overall decrease of performance: from 11.59\% to 12.26\% PER. This decrease of performance is consistent across the three groups of speakers. It would probably be possible to obtain better model selection for exemple by training a DNN to perform the selection but the is out of the scope of this paper. Therefore, in the rest of the paper, {\em Model selection} approach is assumed to be the {\em Model selection (oracle)} approach and recognition experiments are always conducted with matching adapted acoustic models. }
 
 \paragraph{7. Page 24, Table 5. The performance improvement of the DNN-warp based systems over the baseline could also be partially due to more parameters. The authors should also train another baseline system with an 8-layer vanilla DNN-HMM systems and verify if it is worse than the proposed 4-layer DNN-warp + 4-layer DNN-HMM system.}
 
@@ -100,7 +102,7 @@ See above.
 
 ~
 
-This has been rephrased as follows:
+This has been rephrased as follows:\\
 \textit{It was chosen to either combine the different approaches at features level (standard VTLN normalised features and the posterior probabilities of the warping factors are combined at the input of the DNN) or to use acoustic features augmented with the posterior probabilities of the warping factors are as inputs to a DNN with age-gender adaptation.}
 
 \paragraph{12 - 14}
