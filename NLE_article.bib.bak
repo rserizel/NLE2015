@@ -2,18 +2,16 @@
 % Encoding: Cp1252
 
 @INPROCEEDINGS{abdel2013fast,
-  author = {Abdel-Hamid, Ossama and Jiang, Hui},
+  author = {Abdel-Hamid, O. and Jiang, H.},
   title = {{Fast speaker adaptation of hybrid NN/HMM model for speech recognition
 	based on discriminative learning of speaker code}},
-  booktitle = {Acoustics, Speech and Signal Processing (ICASSP), 2013 IEEE International
-	Conference on},
+  booktitle = {Proc of ICASSP},
   year = {2013},
-  pages = {7942--6},
-  organization = {IEEE}
+  pages = {7942--6}
 }
 
 @INPROCEEDINGS{abdel2013rapid,
-  author = {Abdel-Hamid, Ossama and Jiang, Hui},
+  author = {Abdel-Hamid, O. and Jiang, H.},
   title = {Rapid and effective speaker adaptation of convolutional neural network
 	based models for speech recognition.},
   booktitle = {Proc. of INTERSPEECH},
@@ -54,7 +52,7 @@
 }
 
 @INPROCEEDINGS{aradilla2008using,
-  author = {Aradilla, Guillermo and Bourlard, Herv{\'e} and Magimai-Doss, Mathew},
+  author = {Aradilla, G. and Bourlard, H. and Magimai-Doss, M.},
   title = {Using {KL}-based acoustic models in a large vocabulary recognition
 	task.},
   booktitle = { Proc. of INTERSPEECH},
@@ -63,9 +61,9 @@
 }
 
 @INPROCEEDINGS{bell13,
-  author = {Bell, Peter and Swietojanski, Pawel and Renals, Steve},
+  author = {Bell, P. and Swietojanski, P. and Renals, S.},
   title = {{Multi-level adaptive networks in tandem and hybrid {ASR} systems}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {2013},
   pages = {6975-9},
   address = {Vancouver, Canada},
@@ -82,9 +80,9 @@
 }
 
 @ARTICLE{bengio2013representation,
-  author = {Bengio, Yoshua and Courville, Aaron and Vincent, Pascal},
+  author = {Bengio, Y. and Courville, A. and Vincent, P.},
   title = {{Representation learning: A review and new perspectives}},
-  journal = {Pattern Analysis and Machine Intelligence, IEEE Transactions on},
+  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
   year = {2013},
   volume = {35},
   pages = {1798--828},
@@ -93,10 +91,9 @@
 }
 
 @ARTICLE{bengio07,
-  author = {Bengio, Yoshua and Lamblin, Pascal and Popovici, Dan and Larochelle,
-	Hugo and others},
+  author = {Bengio, Y. and Lamblin, P. and Popovici, D. and Larochelle, H.},
   title = {{Greedy layer-wise training of deep networks}},
-  journal = {Advances in {N}eural {I}nformation {P}rocessing {S}ystems},
+  journal = {Proc. of NIPS},
   year = {2007},
   volume = {19},
   pages = {153},
@@ -107,7 +104,7 @@
   title = {{Connectionist speech recognition: a hybrid approach}},
   publisher = {Springer},
   year = {1994},
-  author = {Bourlard, Herve A and Morgan, Nelson},
+  author = {Bourlard, H. A and Morgan, N.},
   volume = {247}
 }
 
@@ -117,7 +114,7 @@
 	and Povey, D. and Rastrow, A. and Rose, R.C. and Thomas, S.},
   title = {{Multilingual acoustic modeling for speech recognition based on subspace
 	Gaussian Mixture Models}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {2010},
   pages = {4334-7},
   month = {March},
@@ -158,7 +155,7 @@
   author = {L. Cristoforetti and M. Ravanelli and M. Omologo and A. Sosi and
 	A. Abad and M. Hagmueller and P. Maragos},
   title = {{The DIRHA simulated corpus}},
-  booktitle = {{Language Resources and Evaluation Conference (LREC)}},
+  booktitle = {{Proc. of (LREC)}},
   year = {2014},
   month = {May}
 }
@@ -172,23 +169,23 @@
   volume = {20},
   pages = {30-42},
   number = {1},
-  month = {Jan},
+  month = {Jan}
 }
 
 @INPROCEEDINGS{DasNixPic98,
   author = {S.~Das and D.~Nix and M.~Picheny},
   title = {{Improvements in Children's Speech Recognition Performance}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {1998},
   address = {Seattle,WA},
   month = {May}
 }
 
 @ARTICLE{dehak2011front,
-  author = {Dehak, Najim and Kenny, Patrick and Dehak, R{\'e}da and Dumouchel,
-	Pierre and Ouellet, Pierre},
+  author = {Dehak, N. and Kenny, P. and Dehak, R. and Dumouchel, P. and Ouellet,
+	P.},
   title = {Front-end factor analysis for speaker verification},
-  journal = {Audio, Speech, and Language Processing, IEEE Transactions on},
+  journal = {IEEE Transactions on Audio, Speech, and Language Processing},
   year = {2011},
   volume = {19},
   pages = {788--98},
@@ -199,7 +196,7 @@
 @INPROCEEDINGS{EidGis96,
   author = {E.~Eide and H.~Gish},
   title = {{A Parametric Approach to Vocal Tract Lenght Normalization}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {1996},
   pages = {346-9},
   address = {Atlanta, GA},
@@ -207,8 +204,8 @@
 }
 
 @ARTICLE{erhan10,
-  author = {Erhan, Dumitru and Bengio, Yoshua and Courville, Aaron and Manzagol,
-	Pierre-Antoine and Vincent, Pascal and Bengio, Samy},
+  author = {Erhan, D. and Bengio, Y. and Courville, A. and Manzagol, P.-A. and
+	Vincent, P. and Bengio, S.},
   title = {Why does unsupervised pre-training help deep learning?},
   journal = {The Journal of Machine Learning Research},
   year = {2010},
@@ -221,7 +218,7 @@
   author = {W.~T.~Fitch and J.~Giedd},
   title = {{Morphology and development of the human vocal tract: A study using
 	magnetic resonance imaging}},
-  journal = {Journal of Acoust. Soc. Amer.},
+  journal = {Journal of Acoustical Society of America},
   year = {1999},
   volume = {106},
   pages = {1511-22},
@@ -240,7 +237,7 @@
 }
 
 @ARTICLE{GerGiuBru09,
-  author = {Matteo Gerosa and Diego Giuliani and Fabio Brugnara},
+  author = {M. Gerosa and D. Giuliani and F. Brugnara},
   title = {Towards age-independent acoustic modeling },
   journal = {Speech Communication},
   year = {2009},
@@ -250,7 +247,7 @@
 }
 
 @ARTICLE{GerGiuBru07,
-  author = {Matteo Gerosa and Diego Giuliani and Fabio Brugnara},
+  author = {M. Gerosa and D. Giuliani and F. Brugnara},
   title = {Acoustic variability and automatic recognition of children’s speech
 	},
   journal = {Speech Communication},
@@ -262,8 +259,7 @@
 }
 
 @INPROCEEDINGS{Gerosa2009,
-  author = {Gerosa, Matteo and Giuliani, Diego and Narayanan, Shrikanth and Potamianos,
-	Alexandros},
+  author = {Gerosa, M. and Giuliani, D. and Narayanan, S. and Potamianos, A.},
   title = {{A Review of ASR Technologies for Children's Speech}},
   booktitle = {Proc. of the 2nd Workshop on Child, Computer and Interaction},
   year = {2009},
@@ -281,7 +277,7 @@
   author = {L. Gillick and S. Cox},
   title = {{Some Statistical Issues in the Comparison of Speech Recognition
 	Algorithms}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {1989},
   pages = {I-532-5},
   address = {Glasgow, Scotland},
@@ -291,7 +287,7 @@
 @INPROCEEDINGS{GiuGer03,
   author = {D.~Giuliani and M.~Gerosa},
   title = {{Investigating Recognition of Children Speech}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {2003},
   volume = {2},
   pages = {137-40},
@@ -301,8 +297,9 @@
 
 @INPROCEEDINGS{grezl11,
   author = {Grezl, F. and Karafiat, M. and Janda, M.},
-  title = {{Study of probabilistic and Bottle-Neck features in multilingual environment}},
-  booktitle = {{Proc. of IEEE ASRU Workshop}},
+  title = {{Study of probabilistic and Bottle-Neck features in multilingual
+	environment}},
+  booktitle = {{Proc. of ASRU}},
   year = {2011},
   pages = {359-64},
   month = {Dec},
@@ -315,7 +312,7 @@
   author = {A.~Hagen and B.~Pellom and R.~Cole},
   title = {{Children's Speech Recognition with Application to Interactive Books
 	and Tutors}},
-  booktitle = {{Proc. of IEEE ASRU Workshop}},
+  booktitle = {{Proc. of ASRU}},
   year = {2003},
   address = {St. Thomas~Irsee, US Virgin Islands},
   month = {Dec.}
@@ -324,7 +321,7 @@
 @INPROCEEDINGS{hermansky00,
   author = {Hermansky, H. and Ellis, D.P.W. and Sharma, S.},
   title = {{Tandem connectionist feature extraction for conventional HMM systems}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {2000},
   volume = {3},
   pages = {1635-8},
@@ -362,7 +359,7 @@
 }
 
 @ARTICLE{hinton06,
-  author = {Hinton, Geoffrey and Osindero, Simon and Teh, Yee-Whye},
+  author = {Hinton, G. and Osindero, S. and Teh, Y.-W.},
   title = {A fast learning algorithm for deep belief nets},
   journal = {Neural computation},
   year = {2006},
@@ -377,7 +374,7 @@
 	and K.~Johnson},
   title = {{Formants of children women and men: The effect of vocal intensity
 	variation}},
-  journal = {Journal of Acoust. Soc. Amer.},
+  journal = {Journal of Acoustical Society of America},
   year = {1999},
   volume = {106},
   pages = {1532-42},
@@ -386,11 +383,10 @@
 }
 
 @ARTICLE{imseng14,
-  author = {David Imseng and Petr Motlicek and Hervé Bourlard and Philip N.
-	Garner},
+  author = {D. Imseng and P. Motlicek and H. Bourlard and P.N. Garner},
   title = {Using out-of-language data to improve an under-resourced speech recognizer
 	},
-  journal = {Speech Communication },
+  journal = {Speech Communication},
   year = {2014},
   volume = {56},
   pages = {142 - 51},
@@ -403,7 +399,7 @@
   author = {Imseng, D. and Motlicek, P. and Garner, P.N. and Bourlard, H.},
   title = {Impact of deep {MLP} architecture on different acoustic modeling
 	techniques for under-resourced speech recognition},
-  booktitle = {{Proc. of IEEE ASRU Workshop}},
+  booktitle = {{Proc. of ASRU}},
   year = {2013},
   pages = {332-7},
   month = {Dec}
@@ -411,29 +407,29 @@
 
 @ARTICLE{Kumar1998283,
   author = {Nagendra Kumar and Andreas G. Andreou},
-  title = {Heteroscedastic discriminant analysis and reduced rank HMMs for
-	improved speech recognition},
+  title = {Heteroscedastic discriminant analysis and reduced rank HMMs for improved
+	speech recognition},
   journal = {Speech Communication },
   year = {1998},
   volume = {26},
   pages = {283 - 97},
-  number = {4},
+  number = {4}
 }
 
 @INPROCEEDINGS{vietbac10,
-  author = {Viet-Bac Le and Lamel, L. and Gauvain, J.},
+  author = {V.-B. Le and Lamel, L. and Gauvain, J.},
   title = {{Multi-style ML features for BN transcription}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {2010},
   pages = {4866-9},
   month = {March},
-  issn = {1520-6149},
+  issn = {1520-6149}
 }
 
 @INPROCEEDINGS{LeeGau93,
-  author = {Lee, Chin-Hui and Gauvain, Jean-Luc},
+  author = {Lee, C.-H. and Gauvain, J.-L.},
   title = {Speaker adaptation based on MAP estimation of HMM parameters},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {1993},
   volume = {2},
   pages = {558-61},
@@ -443,7 +439,7 @@
 @INPROCEEDINGS{LeeRos96,
   author = {L.~Lee and R.~C.~Rose},
   title = {{Speaker Normalization Using Efficient Frequency Warping Procedure}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {1996},
   pages = {353-6},
   address = {Atlanta, GA},
@@ -454,7 +450,7 @@
   author = {S.~Lee and A.~Potamianos and S.~Narayanan},
   title = {{Acoustic of children's speech: Developmental changes of temporal
 	and spectral parameters}},
-  journal = {Journal of Acoust. Soc. Amer.},
+  journal = {Journal of Acoustical Society of America},
   year = {1999},
   volume = {105},
   pages = {1455-1468},
@@ -463,32 +459,32 @@
 }
 
 @INPROCEEDINGS{li2010comparison,
-  author = {Li, Bo and Sim, Khe Chai},
-  title = {{Comparison of discriminative input and output transformations for speaker adaptation in the hybrid NN/HMM systems}},
+  author = {Li, B. and Sim, K.C.},
+  title = {{Comparison of discriminative input and output transformations for
+	speaker adaptation in the hybrid NN/HMM systems}},
   booktitle = {Proc. of INTERSPEECH},
-  pages = {526-9},
-  year = {2010}
+  year = {2010},
+  pages = {526-9}
 }
 
 @INPROCEEDINGS{LiRus01,
   author = {Q.~Li and M.~Russell},
   title = {{Why is Automatic Recognition of Children's Speech Difficult?}},
-  booktitle = {{Proc. of the Seventh European Conference on Speech Communication
-	and Technology}},
+  booktitle = {{Proc. of EUROSPEECH}},
   year = {2001},
   address = {Aalborg, Denmark}
 }
 
 @INPROCEEDINGS{liao2013speaker,
-  author = {Liao, Hank},
+  author = {Liao, H.},
   title = {Speaker adaptation of context dependent deep neural networks},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {2013},
   pages = {7947--51}
 }
 
 @ARTICLE{mangu2000finding,
-  author = {Mangu, Lidia and Brill, Eric and Stolcke, Andreas},
+  author = {Mangu, L. and Brill, E. and Stolcke, A.},
   title = {Finding consensus in speech recognition: word error minimization
 	and other applications of confusion networks},
   journal = {Computer Speech \& Language},
@@ -499,13 +495,31 @@
   publisher = {Elsevier}
 }
 
+@INPROCEEDINGS{MaragakisP08,
+  author = {Maragakis, M.G. and Potamianos, A.},
+  title = {{Region-based vocal tract length normalization for ASR}},
+  booktitle = {Proc. of INTERSPEECH},
+  year = {2008},
+  pages = {1365-8}
+}
+
 @INPROCEEDINGS{MatChe2014,
-  author = {Angeliki~Metallinou and Jian~Cheng},
+  author = {A.~Metallinou and J.~Cheng},
   title = {{Using Deep Neural Networks to Improve Proficiency Assessment for
 	Children English Language Learners}},
   booktitle = {Proc. of INTERSPEECH},
   year = {2014},
   pages = {1468--72}
+}
+
+@INPROCEEDINGS{Miguel2005,
+  author = {Miguel, A. and Lieida, E. and Rose, R. and Buera, L. and Ortega,
+	A.},
+  title = {{Augmented state space acoustic decoding for modeling local variability
+	in speech}},
+  booktitle = {Proc. of INTERSPEECH},
+  year = {2005},
+  pages = {3009--12}
 }
 
 @ARTICLE{mohamed12,
@@ -529,9 +543,9 @@
 }
 
 @INPROCEEDINGS{narayanan2014joint,
-  author = {Narayanan, Arun and Wang, DeLiang},
+  author = {Narayanan, A. and Wang, DL.},
   title = {Joint noise adaptive training for robust automatic speech recognition},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {2014},
   pages = {2523--7}
 }
@@ -540,7 +554,7 @@
   author = {R.~Nisimura and A.~Lee and H.~Saruwatari and K.~Shikano},
   title = {{Public Speech-Oriented Guidance System with Adult and Child Discrimination
 	Capability}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {2004},
   address = {Montreal, Canada},
   month = {May}
@@ -549,7 +563,7 @@
 @INPROCEEDINGS{pinto09,
   author = {Pinto, J. and Magimai-Doss and Bourlard, H.},
   title = {{M}{L}{P} based hierarchical system for task adaptation in {ASR}},
-  booktitle = {{Proc. of IEEE ASRU Workshop}},
+  booktitle = {{Proc. of ASRU}},
   year = {2009},
   pages = {365-70},
   month = {Nov},
@@ -584,20 +598,19 @@
 }
 
 @INPROCEEDINGS{saon2013speaker,
-  author = {Saon, George and Soltau, Hagen and Nahamoo, David and Picheny, Michael},
-  title = {Speaker adaptation of neural network acoustic models using i-vectors},
-  booktitle = {Automatic Speech Recognition and Understanding (ASRU), 2013 IEEE
-	Workshop on},
+  author = {Saon, G. and Soltau, H. and Nahamoo, D. and Picheny, M.},
+  title = {Speaker adaptation of neural network acoustic models using {I}-vectors},
+  booktitle = {Proc. of ASRU},
   year = {2013},
   pages = {55--9},
   organization = {IEEE}
 }
 
 @INPROCEEDINGS{export:157341,
-  author = {Frank Seide and Gang Li and Xie Chen and Dong Yu},
+  author = {F. Seide and G. Li and X. Chen and D. Yu},
   title = {Feature engineering in context-dependent deep neural networks for
 	conversational speech transcription},
-  booktitle = {{Proc. of IEEE ASRU Workshop}},
+  booktitle = {{Proc. of ASRU}},
   year = {2011},
   month = {December}
 }
@@ -606,7 +619,7 @@
   author = {Seide, F. and Gang Li and Xie Chen and Dong Yu},
   title = {{Feature engineering in Context-Dependent Deep Neural Networks for
 	conversational speech transcription}},
-  booktitle = {{Proc. of IEEE ASRU Workshop}},
+  booktitle = {{Proc. of ASRU}},
   year = {2011},
   pages = {24-9},
   month = {Dec},
@@ -618,26 +631,17 @@
 }
 
 @INPROCEEDINGS{export:194344,
-  author = {Michael Seltzer and Dong Yu and Yongqiang Wang},
+  author = {M. Seltzer and D. Yu and Y. Wang},
   title = {{An Investigation Of Deep Neural Networks For Noise Robust Speech
 	Recognition}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {2013}
 }
 
 @INPROCEEDINGS{42536,
-  author = {Andrew Senior and Ignacio Lopez-Moreno},
+  author = {A. Senior and I. Lopez-Moreno},
   title = {Improving {DNN} Speaker Independence with {I}-vector Inputs},
-  booktitle = {{Proc. of IEEE ICASSP}},
-  year = {2014}
-}
-
-@INPROCEEDINGS{SerGiu2014a,
-  author = {R. Serizel and D. Giuliani},
-  title = {{Vocal tract length normalisation approaches to {DNN}-based children's
-	and adults' speech recognition}},
-  booktitle = {{IEEE Spoken Language Technology Workshop ({SLT} 2014)}},
-  address = {{Lake Tahoe, CA}},
+  booktitle = {{Proc. of ICASSP}},
   year = {2014}
 }
 
@@ -645,15 +649,24 @@
   author = {R. Serizel and D. Giuliani},
   title = {{Deep neural network adaptation for children's and adults' speech
 	recognition}},
-  booktitle = {{Proc. of the First Italian Computational Linguistics Conference}},
+  booktitle = {{Proc. of CLIC-It}},
   year = {2014},
   address = {{Pisa, IT}}
+}
+
+@INPROCEEDINGS{SerGiu2014a,
+  author = {R. Serizel and D. Giuliani},
+  title = {{Vocal tract length normalisation approaches to {DNN}-based children's
+	and adults' speech recognition}},
+  booktitle = {{Proc. of SLT}},
+  year = {2014},
+  address = {{Lake Tahoe, CA}}
 }
 
 @INPROCEEDINGS{ShiLeeRed86,
   author = {K. Shikano and K.-F. Lee and R. Reddy},
   title = {{Speaker Adaptation through Vector Quantization}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {1986},
   pages = {2643-6},
   address = {Tokyo}
@@ -662,7 +675,7 @@
 @INPROCEEDINGS{sivadas04,
   author = {Sivadas, S. and Hermansky, H.},
   title = {{On use of task independent training data in tandem feature extraction}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {2004},
   volume = {1},
   pages = {I-541-4},
@@ -692,7 +705,7 @@
 	N. and Vergyri, D.},
   title = {{Cross-Domain and Cross-Language Portability of Acoustic Features
 	Estimated by Multilayer Perceptrons}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {2006},
   volume = {1},
   pages = {321-34},
@@ -708,7 +721,7 @@
 @INPROCEEDINGS{swietojanski12,
   author = {Swietojanski, P. and Ghoshal, A. and Renals, S.},
   title = {Unsupervised cross-lingual knowledge transfer in {DNN}-based {LVCSR}},
-  booktitle = {{Proc. of IEEE SLT Workshop}},
+  booktitle = {{Proc. of SLT}},
   year = {2012},
   pages = {246-51},
   month = {Dec}
@@ -717,7 +730,7 @@
 @INPROCEEDINGS{thomas12,
   author = {Thomas, S. and Ganapathy, S. and Hermansky, H.},
   title = {Multilingual {MLP} features for low-resource {LVCSR} systems},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {2012},
   pages = {4269-72},
   month = {March},
@@ -728,7 +741,7 @@
   author = {Thomas, S. and Seltzer, M.L. and Church, K. and Hermansky, H.},
   title = {Deep neural network features and semi-supervised training for low
 	resource speech recognition},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {2013},
   pages = {6704-8},
   month = {May},
@@ -753,10 +766,10 @@
 }
 
 @ARTICLE{Wollmer11,
-  author = {W\"{o}llmer, Martin and Schuller, Bj\"{o}rn and Batliner, Anton and
-	Steidl, Stefan and Seppi, Dino},
-  title = {{Tandem Decoding of Children's Speech for Keyword Detection in a Child-robot
-	Interaction Scenario}},
+  author = {W\"{o}llmer, M. and Schuller, B. and Batliner, A. and Steidl, S.
+	and Seppi, D.},
+  title = {{Tandem Decoding of Children's Speech for Keyword Detection in a
+	Child-robot Interaction Scenario}},
   journal = {ACM Transasctions Speech Language Processing},
   year = {2011},
   volume = {7},
@@ -777,7 +790,7 @@
 @INPROCEEDINGS{WegMcaOrlPek96,
   author = {S. Wegmann and D. McAllaster and J. Orloff and B. Peskin},
   title = {{Speaker Normalisation on Conversational Telephone Speech}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {1996},
   pages = {I-339-41},
   address = {Atlanta, GA},
@@ -787,7 +800,7 @@
 @INPROCEEDINGS{WelKanNey99,
   author = {L.~Welling and S.~Kanthak and H.~Ney},
   title = {{Improved Methods for Vocal Tract Normalization}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {1999},
   volume = {2},
   pages = {761-4},
@@ -798,7 +811,7 @@
 @INPROCEEDINGS{WilJac96,
   author = {J.~G.~Wilpon and C.~N.~Jacobsen},
   title = {{A Study of Speech Recognition for Children and Elderly}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {1996},
   pages = {349-52},
   address = {Atlanta, GA},
@@ -808,7 +821,7 @@
 @INPROCEEDINGS{WooOdeValYou94,
   author = {Woodland, P.C. and Odell, J. J. and Valtchev, V. and Young, S. J.},
   title = {{Large vocabulary continuous speech recognition using HTK}},
-  booktitle = {{Proc. of IEEE ICASSP}},
+  booktitle = {{Proc. of ICASSP}},
   year = {1994},
   volume = {2},
   pages = {125-8},
@@ -826,22 +839,3 @@
   month = {Jun}
 }
 
-
-%Region/phone based VTLN
-@inproceedings{MaragakisP08,
-  author = {Maragakis, Michail G. and Potamianos, Alexandros},
-  booktitle = {Proc. of INTERSPEECH},
-  pages = {1365-8},
-  title = {{Region-based vocal tract length normalization for ASR}},
-  year = 2008
-}
-
-
-%frame based VTLN
-@inproceedings{Miguel2005,
-  author = {Miguel, A. and Lieida, E. and Rose, R. and Buera, L. and Ortega, A.},
-  booktitle = {Proc. of INTERSPEECH},
-  pages = {3009–12},
-  title = {{Augmented state space acoustic decoding for modeling local variability in speech}},
-  year = 2005
-} 
